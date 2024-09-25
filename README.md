@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fun Architect Portfolio</title>
+  <title>Fun Architect Portfolio - With Cats!</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
+      background: url('https://placekitten.com/1600/900') no-repeat center center fixed; /* Cat background */
+      background-size: cover; /* Makes the cat image cover the whole page */
       text-align: center;
       margin: 0;
       padding: 0;
@@ -16,7 +17,8 @@
     h1 {
       font-size: 2.5rem;
       margin-top: 50px;
-      color: #333;
+      color: #fff; /* Make text white to stand out against the cat background */
+      text-shadow: 2px 2px 4px #000; /* Add a shadow to text */
     }
 
     .fun-btn {
@@ -28,6 +30,8 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
+      z-index: 2; /* Ensure buttons are above the background */
+      position: relative;
     }
 
     .fun-btn:hover {
@@ -41,6 +45,8 @@
       height: 0;
       background-color: #333;
       transition: height 1s ease;
+      z-index: 2;
+      position: relative;
     }
 
     /* Wrecking Ball */
@@ -53,6 +59,7 @@
       display: none;
       position: relative;
       animation: swing 2s ease infinite;
+      z-index: 2;
     }
 
     @keyframes swing {
@@ -64,17 +71,31 @@
     #quote-box {
       margin-top: 20px;
       padding: 20px;
-      background-color: #fff3cd;
+      background-color: rgba(255, 255, 255, 0.7); /* Transparent white box */
       border: 2px dashed #ff5733;
       font-size: 1.2rem;
       font-style: italic;
       display: none;
+      z-index: 2;
+      position: relative;
     }
 
     footer {
       margin-top: 100px;
       font-size: 0.8rem;
-      color: #666;
+      color: #fff;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    /* Bonus: Clickable cat icon for extra fun */
+    #cat-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      z-index: 10;
     }
   </style>
 </head>
@@ -97,8 +118,11 @@
   <button class="fun-btn" id="quoteBtn">Get an Architecture Quote!</button>
   <div id="quote-box"></div>
 
+  <!-- Bonus: Fun clickable cat icon -->
+  <img src="https://placekitten.com/100/100" alt="Fun Cat" id="cat-icon">
+
   <footer>
-    <p>© 2024 Fun Architect. Master of questionable designs and fun buttons!</p>
+    <p>© 2024 Fun Architect. Now powered by kittens!</p>
   </footer>
 
   <!-- Confetti Script -->
@@ -160,6 +184,13 @@
       const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
       quoteBox.innerText = randomQuote;
       quoteBox.style.display = "block";
+    });
+
+    // Bonus: Add a meow sound effect when you click the cat icon
+    const catIcon = document.getElementById('cat-icon');
+    catIcon.addEventListener('click', function() {
+      const meow = new Audio('https://www.soundjay.com/cat/cat-meow-2.mp3');
+      meow.play();
     });
   </script>
 
