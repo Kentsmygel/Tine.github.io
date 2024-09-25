@@ -34,7 +34,7 @@
       background-color: #c70039;
     }
 
-    /* Skyscraper Animation */
+    /* Skyscraper */
     #skyscraper {
       margin: 20px auto;
       width: 100px;
@@ -119,19 +119,31 @@
     const buildBtn = document.getElementById('buildBtn');
     const skyscraper = document.getElementById('skyscraper');
     buildBtn.addEventListener('click', function() {
-      skyscraper.style.height = "300px";
+      skyscraper.style.height = "300px"; // Build the skyscraper
     });
 
-    // Wrecking Ball Animation
+    // Wrecking Ball Functionality
     const wreckBtn = document.getElementById('wreckBtn');
     const wreckingBall = document.getElementById('wrecking-ball');
     wreckBtn.addEventListener('click', function() {
       if (wreckingBall.style.display === "none") {
         wreckingBall.style.display = "block";
-      } else {
-        wreckingBall.style.display = "none";
+        wreckSkyscraper();
       }
     });
+
+    // Function to wreck the skyscraper
+    function wreckSkyscraper() {
+      let height = 300; // Starting height of the skyscraper
+      const interval = setInterval(() => {
+        if (height > 0) {
+          height -= 30; // Decrease height by 30px
+          skyscraper.style.height = height + 'px';
+        } else {
+          clearInterval(interval); // Stop wrecking once it's fully demolished
+        }
+      }, 300); // Wreck every 300 milliseconds for a dramatic effect
+    }
 
     // Random Building Quotes
     const quoteBtn = document.getElementById('quoteBtn');
