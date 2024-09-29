@@ -8,29 +8,31 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    
+
     <style>
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
         }
 
         body, html {
-            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            height: 100%;
+            font-family: 'Montserrat', sans-serif; /* Sleek, professional font */
             background-color: #f5f5f5;
             color: #333;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         /* Intro Section */
         .intro {
-            height: 100vh;
+            height: 100vh; /* Full height of viewport */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #f5e6cc;
+            background-color: #f5e6cc; /* Soft beige color */
             text-align: center;
         }
 
@@ -69,12 +71,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%; /* Ensure full width */
         }
 
         .project {
             display: flex;
-            width: 100%;
-            max-width: 1200px;
+            width: 100%; /* Full width */
+            max-width: 1200px; /* Limit maximum width */
             margin: 20px 0;
             align-items: center;
             justify-content: space-between;
@@ -83,16 +86,16 @@
         }
 
         .project img {
-            width: 40%;
-            max-height: 400px;
+            width: 40%; /* Keep original aspect ratio but smaller */
+            max-height: 400px; /* Limit maximum height */
             transition: transform 0.3s;
         }
 
         .project-info {
-            width: 50%;
+            width: 50%; /* Wider project description */
             padding: 20px;
-            opacity: 0;
-            visibility: hidden;
+            opacity: 0; /* Hidden by default */
+            visibility: hidden; /* Hidden by default */
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
@@ -101,8 +104,8 @@
         }
 
         .project:hover .project-info {
-            opacity: 1;
-            visibility: visible;
+            opacity: 1; /* Show the text */
+            visibility: visible; /* Make it visible */
         }
 
         .project:nth-child(even) {
@@ -110,16 +113,11 @@
         }
 
         .project-title {
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
-
-        .project-description {
-            font-size: 1rem;
-            max-height: 3.6rem; /* Limit height to two lines */
-            overflow: hidden;
-            text-overflow: ellipsis; /* Add ellipsis for overflow */
-            white-space: nowrap; /* Prevent wrapping */
+            font-size: 1.2rem; /* Smaller font size */
+            font-weight: 300; /* Thinner font */
+            color: #556b2f;
+            text-align: center; /* Center the text */
+            padding: 10px; /* Added padding for better readability */
         }
 
         /* Art Section */
@@ -128,7 +126,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
-            max-width: 1200px;
+            max-width: 1200px; /* Center gallery */
             margin: auto;
         }
 
@@ -145,7 +143,7 @@
 
         .art-card img {
             width: 100%;
-            height: auto; /* Maintain aspect ratio */
+            height: auto; /* Maintain original aspect ratio */
         }
 
         /* Contact Section */
@@ -171,7 +169,7 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .project {
-                flex-direction: column;
+                flex-direction: column; /* Stack images and text on mobile */
             }
 
             .project img {
@@ -180,6 +178,10 @@
 
             .project-info {
                 width: 100%; /* Full width on mobile */
+            }
+
+            .menu {
+                flex-direction: column; /* Stack menu items on mobile */
             }
         }
     </style>
@@ -204,56 +206,63 @@
         <div class="project">
             <img src="Badehus regn.png" alt="Badehus Project 1">
             <div class="project-info">
-                <div class="project-title">Badehus - Rainy View</div>
-                <div class="project-description">A community bathhouse designed to blend with its natural surroundings, featuring large windows to capture light and views of the sea.</div>
+                <div class="project-title">Badehus - Rainy View<br>
+                    <span>A community bathhouse designed to blend with its natural surroundings.</span>
+                </div>
             </div>
         </div>
 
         <div class="project">
             <img src="Badehus ute.png" alt="Badehus Project 2">
             <div class="project-info">
-                <div class="project-title">Badehus - Outside View</div>
-                <div class="project-description">A sleek design, the bathhouse merges into the landscape while maintaining a strong architectural presence.</div>
+                <div class="project-title">Badehus - Outside View<br>
+                    <span>A sleek design, merging into the landscape.</span>
+                </div>
             </div>
         </div>
 
         <div class="project">
             <img src="Badehus vindu.png" alt="Badehus Window View">
             <div class="project-info">
-                <div class="project-title">Badehus - Window View</div>
-                <div class="project-description">Innovative use of glass to frame the views, creating an immersive connection with the surrounding environment.</div>
+                <div class="project-title">Badehus - Window View<br>
+                    <span>Innovative use of glass to frame the views.</span>
+                </div>
             </div>
         </div>
 
         <div class="project">
             <img src="Grounded inngang.png" alt="Grounded Entrance">
             <div class="project-info">
-                <div class="project-title">Grounded - Entrance</div>
-                <div class="project-description">An underground mindfulness space designed to promote relaxation and a deeper connection to nature.</div>
+                <div class="project-title">Grounded - Entrance<br>
+                    <span>An underground mindfulness space designed for relaxation.</span>
+                </div>
             </div>
         </div>
 
         <div class="project">
             <img src="Grounded refleksjon.png" alt="Grounded Reflection">
             <div class="project-info">
-                <div class="project-title">Grounded - Reflection</div>
-                <div class="project-description">A reflective area that incorporates natural light and elements of water to enhance tranquility.</div>
+                <div class="project-title">Grounded - Reflection<br>
+                    <span>A reflective area incorporating natural light and water.</span>
+                </div>
             </div>
         </div>
 
         <div class="project">
             <img src="Master 1.png" alt="Master Thesis Image 1">
             <div class="project-info">
-                <div class="project-title">Master Thesis - Overview 1</div>
-                <div class="project-description">A comprehensive design proposal showcasing sustainable practices in urban settings.</div>
+                <div class="project-title">Master Thesis - Overview 1<br>
+                    <span>A comprehensive design proposal showcasing sustainability.</span>
+                </div>
             </div>
         </div>
 
         <div class="project">
             <img src="Master 2.png" alt="Master Thesis Image 2">
             <div class="project-info">
-                <div class="project-title">Master Thesis - Overview 2</div>
-                <div class="project-description">Exploring innovative materials and techniques in modern architecture.</div>
+                <div class="project-title">Master Thesis - Overview 2<br>
+                    <span>Exploring innovative materials in architecture.</span>
+                </div>
             </div>
         </div>
     </div>
