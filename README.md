@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arkitekt Tine Kierulf</title>
 
-    <!-- Google Fonts for Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts for Professional Sleek Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -19,7 +19,7 @@
             width: 100%;
             height: 100%;
             margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Sleek, professional font */
             scroll-behavior: smooth;
             background-color: #f5f5f5;
             color: #333;
@@ -35,6 +35,7 @@
             align-items: center;
             background-color: #f5e6cc; /* Soft beige color */
             position: relative;
+            width: 100vw; /* Ensure it fills the full width */
         }
 
         /* Title across the screen */
@@ -48,7 +49,7 @@
             justify-content: space-between;
             padding: 0 20px;
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 600; /* Thin yet bold */
             color: #556b2f;
             white-space: nowrap;
             max-width: 100vw;
@@ -81,12 +82,17 @@
             padding: 6rem 2rem;
             opacity: 1;
             transition: opacity 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the content */
+            justify-content: center;
         }
 
         .section h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
             color: #556b2f;
+            font-weight: 400; /* Light, sleek font */
         }
 
         /* Project Grid */
@@ -94,7 +100,9 @@
             display: flex;
             flex-direction: column;
             gap: 4rem;
-            max-width: 100vw;
+            max-width: 100%;
+            align-items: center;
+            justify-content: center;
         }
 
         .project {
@@ -103,7 +111,8 @@
             justify-content: space-between;
             gap: 2rem;
             cursor: pointer;
-            max-width: 100vw;
+            width: 80%; /* Centered and occupies 80% of the width */
+            max-width: 1200px;
         }
 
         .project:nth-child(odd) {
@@ -129,7 +138,7 @@
 
         .project-title {
             font-size: 1.8rem;
-            font-weight: bold;
+            font-weight: 600;
             color: #556b2f;
             text-align: center;
             background: rgba(255, 255, 255, 0.8);
@@ -155,6 +164,8 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             width: 100vw;
+            align-items: center;
+            justify-content: center;
         }
 
         .art-card {
@@ -178,6 +189,7 @@
         /* Contact Info */
         .contact-info p {
             margin-bottom: 0.5rem;
+            font-weight: 400;
         }
 
         .contact-info a {
