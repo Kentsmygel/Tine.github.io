@@ -27,15 +27,15 @@
         }
 
         /* Intro Section */
-        .intro-section {
-            height: 100vh; /* Full height of viewport */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #f5e6cc; /* Soft beige color */
-            position: relative;
-            width: 100%; /* Ensure it fills the full width */
+        .section {
+    width: 100vw; /* Ensure full width */
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the section titles */
+    justify-content: center;
+     }
         }
 
         /* Title across the screen */
@@ -47,7 +47,7 @@
             transform: translateY(-50%);
             display: flex;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 0px;
             font-size: 1.5rem;
             font-weight: 600; /* Thin yet bold */
             color: #556b2f;
