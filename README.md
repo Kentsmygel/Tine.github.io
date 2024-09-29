@@ -288,7 +288,7 @@
         <div class="projects-grid">
             <!-- Project 1: PULS Bathhouse -->
             <div class="project-card">
-                <img src="https://source.unsplash.com/300x200/?bathhouse" alt="PULS Bathhouse">
+                <img src="Bathhouse_Rain" alt="PULS Bathhouse">
                 <div class="project-info">
                     <h3 class="project-title">PULS Bathhouse</h3>
                     <p class="project-description">A pro-bono bathhouse project in Åsgårdstrand, designed to connect the local community with its history.</p>
