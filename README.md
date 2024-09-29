@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tine Kierulf - Architect MNAL</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --cream: #F5E6D3;
-            --beige: #E6D2B5;
-            --olive: #8A8558;
-            --terracotta: #C66E4E;
-            --dark-olive: #4A4A40;
-        }
+    <title>Arkitekt Tine Kierulf</title>
 
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -22,22 +16,28 @@
         }
 
         body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
             scroll-behavior: smooth;
-            background-color: var(--cream);
-            color: var(--dark-olive);
+            background-color: #f5f5f5;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
+        /* Intro Section */
         .intro-section {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: var(--beige);
+            background-color: #f5e6cc; /* Soft beige color */
             position: relative;
         }
 
+        /* Title across the screen */
         .title-bar {
             position: absolute;
             top: 50%;
@@ -49,45 +49,52 @@
             padding: 0 20px;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--olive);
+            color: #556b2f;
             white-space: nowrap;
+            max-width: 100vw;
         }
 
+        /* Menu */
         .menu {
             position: absolute;
             bottom: 40px;
             display: flex;
+            justify-content: center;
             gap: 1.5rem;
             font-size: 1rem;
         }
 
         .menu a {
             text-decoration: none;
-            color: var(--olive);
+            color: #556b2f;
             font-weight: 600;
             transition: color 0.3s;
         }
 
         .menu a:hover {
-            color: var(--terracotta);
+            color: #b5651d;
         }
 
+        /* Sections */
         .section {
+            width: 100vw;
             padding: 6rem 2rem;
-            opacity: 0;
+            opacity: 1;
             transition: opacity 1s ease-in-out;
         }
 
         .section h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
-            color: var(--olive);
+            color: #556b2f;
         }
 
+        /* Project Grid */
         .project-grid {
             display: flex;
             flex-direction: column;
             gap: 4rem;
+            max-width: 100vw;
         }
 
         .project {
@@ -95,8 +102,8 @@
             align-items: center;
             justify-content: space-between;
             gap: 2rem;
-            position: relative;
             cursor: pointer;
+            max-width: 100vw;
         }
 
         .project:nth-child(odd) {
@@ -123,45 +130,35 @@
         .project-title {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--olive);
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            transform: translateY(-50%);
+            color: #556b2f;
             text-align: center;
             background: rgba(255, 255, 255, 0.8);
             padding: 1rem;
             transition: background 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
+        /* Reveal project title on hover */
         .project:hover .project-title {
-            background: rgba(230, 210, 181, 0.8);
+            opacity: 1;
+            visibility: visible;
         }
 
-        /* Hidden Project Details */
-        .project-details {
-            display: none;
-            padding: 2rem;
-        }
-
-        .project.open .project-details {
-            display: block;
-        }
-
-        .project.open img {
-            width: 100%;
-            transition: width 0.5s;
-        }
-
+        /* Art Section Grid */
         .art-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            width: 100vw;
         }
 
         .art-card {
-            background-color: var(--cream);
+            background-color: #f5f5f5;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -178,33 +175,37 @@
             object-fit: cover;
         }
 
+        /* Contact Info */
         .contact-info p {
             margin-bottom: 0.5rem;
         }
 
         .contact-info a {
-            color: var(--terracotta);
+            color: #b5651d;
             text-decoration: none;
         }
 
+        /* Footer Section */
         .footer {
-            background-color: var(--olive);
-            color: var(--cream);
+            background-color: #556b2f;
+            color: #f5f5f5;
             padding: 2rem 0;
             text-align: center;
         }
 
         .footer a {
-            color: var(--cream);
+            color: #f5f5f5;
             margin: 0 10px;
             font-size: 1.2rem;
             text-decoration: none;
         }
 
+        /* Show sections when scrolled */
         .scroll-active {
             opacity: 1 !important;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .title-bar {
                 font-size: 1rem;
@@ -237,213 +238,124 @@
         }
     </style>
 </head>
-
 <body>
+
+    <!-- Intro Section -->
     <section class="intro-section">
         <div class="title-bar">
-            <span>MSc Architect</span>
+            <div>MSc Architect</div>
             <span>Tine Kierulf</span>
-            <span>MNAL</span>
+            <div>MNAL</div>
         </div>
+
+        <!-- Menu at the bottom -->
         <div class="menu">
             <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#experience">Experience</a>
             <a href="#art">Art</a>
             <a href="#contact">Contact</a>
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects" class="section">
-        <h2>Selected Projects</h2>
+        <h2>Featured Projects</h2>
         <div class="project-grid">
-            <div class="project" id="badehuset">
-                <img src="Badehus ute.png" alt="PULS Bathhouse Project">
+            <!-- Project 1: Badehus -->
+            <div class="project">
+                <img src="Badehus%20regn.png" alt="Badehus Project 1">
                 <div class="project-info">
-                    <h3 class="project-title">PULS Bathhouse</h3>
-                    <div class="project-details">
-                        <p>A pro-bono project in Åsgårdstrand, inspired by the area's cultural history and evening sky. The bathhouse seeks to connect the community with nature and provide a tranquil, cultural space.</p>
-                        <img src="Badehus inne.png" alt="PULS Bathhouse Interior">
-                    </div>
+                    <div class="project-title">Badehus - Rainy View</div>
                 </div>
             </div>
 
-            <div class="project" id="master-thesis">
-                <img src="Master 1.png" alt="Master Thesis Project">
+            <div class="project">
+                <img src="Badehus%20ute.png" alt="Badehus Project 2">
                 <div class="project-info">
-                    <h3 class="project-title">Master Thesis</h3>
-                    <div class="project-details">
-                        <p>Reimagining the former Munch Museum in Oslo as a biophilic public space, integrating nature and architecture to revitalize the community.</p>
-                        <img src="Modell inne.jpg" alt="Master Thesis Model">
-                    </div>
+                    <div class="project-title">Badehus - Outside View</div>
                 </div>
             </div>
 
-            <div class="project" id="grounded">
-                <img src="Grounded inngang.png" alt="Grounded Project">
+            <div class="project">
+                <img src="Badehus%20vindu.png" alt="Badehus Window View">
                 <div class="project-info">
-                    <h3 class="project-title">Grounded</h3>
-                    <div class="project-details">
-                        <p>An underground mindfulness space in central Oslo, restoring part of a forgotten river and creating a contemplative atmosphere for urban dwellers.</p>
-                        <img src="Inspo.png" alt="Grounded Inspiration">
-                    </div>
+                    <div class="project-title">Badehus - Window View</div>
                 </div>
             </div>
 
-            <div class="project" id="neb">
-                <img src="FORSIDE.png" alt="New European Bauhaus">
+            <!-- Project 2: Grounded -->
+            <div class="project">
+                <img src="Grounded%20inngang.png" alt="Grounded Entrance">
                 <div class="project-info">
-                    <h3 class="project-title">A New European Bauhaus</h3>
-                    <div class="project-details">
-                        <p>A theoretical project proposing a sustainable design for a European University focused on earth-based materials and environmentally conscious teaching practices.</p>
-                        <img src="Texture.jpg" alt="Earth Textures for NEB">
-                    </div>
+                    <div class="project-title">Grounded - Entrance</div>
+                </div>
+            </div>
+
+            <div class="project">
+                <img src="Grounded%20refleksjon.png" alt="Grounded Reflection">
+                <div class="project-info">
+                    <div class="project-title">Grounded - Reflection</div>
+                </div>
+            </div>
+
+            <!-- Project 3: Master Thesis -->
+            <div class="project">
+                <img src="Master%201.png" alt="Master Thesis Image 1">
+                <div class="project-info">
+                    <div class="project-title">Master Thesis - Overview 1</div>
+                </div>
+            </div>
+
+            <div class="project">
+                <img src="Master%202.png" alt="Master Thesis Image 2">
+                <div class="project-info">
+                    <div class="project-title">Master Thesis - Overview 2</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="education" class="section">
-        <h2>Education</h2>
-        <div class="education-experience">
-            <div class="education">
-                <div class="item">
-                    <h3 class="item-title">MSc Architecture (RIBA II), University of Liechtenstein</h3>
-                    <p class="item-description">RIBA 1 and 2 accreditation. Thesis focused on integrating biophilic design and environmental psychological patterns in architecture.</p>
-                </div>
-                <div class="item">
-                    <h3 class="item-title">BSc Building Design, University of Agder</h3>
-                    <p class="item-description">Civil Engineering degree with electives in Architecture, Urban Planning and Development, Project Management, and Static Calculations.</p>
-                </div>
-                <div class="item">
-                    <h3 class="item-title">Philosophy, NTNU</h3>
-                    <p class="item-description">One-year study in philosophy focusing on aesthetics and ethics.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="section">
-        <h2>Experience</h2>
-        <div class="education-experience">
-            <div class="experience">
-                <div class="item">
-                    <h3 class="item-title">Architect Tine Kierulf</h3>
-                    <p class="item-description">Self-employed architecture and design business. Working on the Badehuset PULS project and continuous projects in interior design, gardens, pergolas, art, and consultation on other bathhouse projects.</p>
-                </div>
-                <div class="item">
-                    <h3 class="item-title">SEIAA Impact Academy</h3>
-                    <p class="item-description">Participated in an international workshop on mediating constraints in building and architecture.</p>
-                </div>
-                <div class="item">
-                    <h3 class="item-title">Speaker at NEB Conference for the European Commission</h3>
-                    <p class="item-description">Invited by honorary UNESCO professor Anna Heringer as a guest lecturer at a conference organized by the European Commission, focusing on clay architecture.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Art Section -->
     <section id="art" class="section">
-        <h2>Art Portfolio</h2>
-        <p>I enjoy hand drawing and watercolor painting, featuring both landscape and urban motifs.</p>
+        <h2>Art Gallery</h2>
         <div class="art-grid">
             <div class="art-card">
-                <img src="Maleri 1.jpg" alt="Painting 1">
+                <img src="Maleri%201.jpg" alt="Art 1">
             </div>
             <div class="art-card">
-                <img src="Maleri 2.jpg" alt="Painting 2">
-            </div>
-            <div class="art-card">
-                <img src="Modell 2.jpg" alt="Model 2">
-            </div>
-            <div class="art-card">
-                <img src="Modell inne.jpg" alt="Interior Model">
+                <img src="Maleri%202.jpg" alt="Art 2">
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="section">
         <h2>Contact</h2>
         <div class="contact-info">
             <p>Email: <a href="mailto:tine.kierulf@hotmail.com">tine.kierulf@hotmail.com</a></p>
-            <p>Phone: +47 91 68 03 18</p>
-            <p>Location: Oslo, Norway</p>
+            <p>Phone: +47 916 80 318</p>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Tine Kierulf. All rights reserved.</p>
-        <div>
-            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-    </footer>
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- ... -->
-    <style>
-        /* ... */
-    </style>
-</head>
-<body>
-    <!-- ... -->
-    <section id="projects" class="section">
-        <!-- ... -->
-        <div class="project-grid">
-            <div class="project-card">
-                <!-- ... -->
-                <div class="project-info">
-                    <!-- ... -->
-                </div>
-            </div>
-            <!-- ... -->
-        </div>
-    </section>
-    <!-- ... -->
-    <footer class="footer">
-        <!-- ... -->
+        <p>© 2024 Arkitekt Tine Kierulf. All Rights Reserved.</p>
+        <p>Follow me on:
+            <a href="#">Instagram</a> |
+            <a href="#">LinkedIn</a>
+        </p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const projects = document.querySelectorAll('.project-card');
-
-            projects.forEach(project => {
-                project.addEventListener('click', function() {
-                    this.classList.toggle('open');
-                });
+        // Smooth fade-in of sections after scrolling
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight * 0.8) {
+                    section.classList.add('scroll-active');
+                }
             });
         });
     </script>
 </body>
 </html>
-        document.addEventListener('DOMContentLoaded', function () {
-            const sections = document.querySelectorAll('.section');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('scroll-active');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            // Toggle project details on click
-            const projects
-.project-card {
-    /* ... */
-}
-
-.project-card.open .project-info {
-    display: block;
-}
-
-.project-card:not(.open) .project-info {
-    display: none;
-}
