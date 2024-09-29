@@ -23,6 +23,7 @@
             margin: 0;
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         /* Full screen layout for the intro section */
@@ -91,7 +92,7 @@
 
         /* Projects Section */
         .projects-section {
-            width: 100%;
+            width: 100vw;
             padding: 6rem 2rem;
             background-color: #ffffff;
             text-align: center;
@@ -119,7 +120,7 @@
         }
         .project-card img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
             transition: transform 0.3s;
         }
@@ -283,25 +284,40 @@
 
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
-        <h2>Featured Projects</h2>
+        <h2>Selected Projects</h2>
         <div class="projects-grid">
-            <!-- Project 1 -->
+            <!-- Project 1: PULS Bathhouse -->
             <div class="project-card">
-                <img src="https://source.unsplash.com/300x200/?architecture1" alt="Project 1">
+                <img src="https://source.unsplash.com/300x200/?bathhouse" alt="PULS Bathhouse">
                 <div class="project-info">
-                    <h3 class="project-title">Modern Villa</h3>
-                    <p class="project-description">A minimalistic modern villa design.</p>
+                    <h3 class="project-title">PULS Bathhouse</h3>
+                    <p class="project-description">A pro-bono bathhouse project in Åsgårdstrand, designed to connect the local community with its history.</p>
                 </div>
             </div>
-            <!-- Project 2 -->
+            <!-- Project 2: Master Thesis - Reimagining Munch Museum -->
             <div class="project-card">
-                <img src="https://source.unsplash.com/300x200/?architecture2" alt="Project 2">
+                <img src="https://source.unsplash.com/300x200/?museum" alt="Munch Museum">
                 <div class="project-info">
-                    <h3 class="project-title">Sustainable Office</h3>
-                    <p class="project-description">Eco-friendly office space.</p>
+                    <h3 class="project-title">Master Thesis - Munch Museum Reimagined</h3>
+                    <p class="project-description">Biophilic public space redesign of the former Munch Museum, revitalizing the Tøyen borough in Oslo.</p>
                 </div>
             </div>
-            <!-- More project cards as needed -->
+            <!-- Project 3: Grounded Project -->
+            <div class="project-card">
+                <img src="https://source.unsplash.com/300x200/?underground" alt="Grounded Project">
+                <div class="project-info">
+                    <h3 class="project-title">Grounded - Mindfulness Space</h3>
+                    <p class="project-description">Underground space in Oslo Center promoting mindfulness through interaction with light and a rediscovered river.</p>
+                </div>
+            </div>
+            <!-- Project 4: New European Bauhaus -->
+            <div class="project-card">
+                <img src="https://source.unsplash.com/300x200/?architecture" alt="New European Bauhaus">
+                <div class="project-info">
+                    <h3 class="project-title">New European Bauhaus</h3>
+                    <p class="project-description">A design solution for a future European University, focused on sustainable teaching and earthen architecture.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -324,10 +340,10 @@
         <h2>Art Portfolio</h2>
         <div class="art-grid">
             <div class="art-card">
-                <img src="https://source.unsplash.com/300x300/?watercolor-art1" alt="Art 1">
+                <img src="https://source.unsplash.com/300x300/?watercolor" alt="Art 1">
             </div>
             <div class="art-card">
-                <img src="https://source.unsplash.com/300x300/?watercolor-art2" alt="Art 2">
+                <img src="https://source.unsplash.com/300x300/?art" alt="Art 2">
             </div>
             <!-- Add more art cards as needed -->
         </div>
