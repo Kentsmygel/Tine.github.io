@@ -93,13 +93,14 @@
             margin-bottom: 2rem;
             color: #556b2f;
             font-weight: 400; /* Light, sleek font */
+            text-transform: uppercase; /* Title in all caps */
         }
 
         /* Project Grid */
         .project-grid {
             display: flex;
             flex-direction: column;
-            gap: 4rem; /* More space between projects */
+            gap: 5rem; /* More space between projects */
             max-width: 90%; /* Reduced max width to create more space */
             align-items: center;
             justify-content: center;
@@ -137,12 +138,11 @@
         }
 
         .project-title {
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.4rem; /* Smaller font size */
+            font-weight: 300; /* Thinner font */
             color: #556b2f;
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
+            padding: 1rem; /* Added padding for better readability */
             transition: background 0.3s;
             opacity: 0;
             visibility: hidden;
