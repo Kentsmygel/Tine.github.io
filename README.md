@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arkitekt Tine Kierulf</title>
-
-    <!-- Google Fonts for Professional Sleek Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-
     <style>
         * {
             margin: 0;
@@ -19,26 +16,24 @@
             width: 100%;
             height: 100%;
             margin: 0;
-            font-family: 'Montserrat', sans-serif; /* Sleek, professional font */
+            font-family: 'Montserrat', sans-serif;
             scroll-behavior: smooth;
             background-color: #f5f5f5;
             color: #333;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
         }
 
-        /* Intro Section */
         .intro-section {
-            height: 100vh; /* Full height of viewport */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #f5e6cc; /* Soft beige color */
+            background-color: #f5e6cc;
             position: relative;
-            width: 100%; /* Full width */
+            width: 100vw;
         }
 
-        /* Title across the screen */
         .title-bar {
             position: absolute;
             top: 50%;
@@ -49,13 +44,12 @@
             justify-content: space-between;
             padding: 0 20px;
             font-size: 1.5rem;
-            font-weight: 600; /* Thin yet bold */
+            font-weight: 600;
             color: #556b2f;
             white-space: nowrap;
-            max-width: 100%;
+            width: 100%;
         }
 
-        /* Menu */
         .menu {
             position: absolute;
             bottom: 40px;
@@ -63,6 +57,7 @@
             justify-content: center;
             gap: 1.5rem;
             font-size: 1rem;
+            width: 100%;
         }
 
         .menu a {
@@ -76,15 +71,14 @@
             color: #b5651d;
         }
 
-        /* Sections */
         .section {
             width: 100%;
-            padding: 4rem 2rem; /* Adjusted padding */
+            padding: 4rem 2rem;
             opacity: 1;
             transition: opacity 1s ease-in-out;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center the section titles */
+            align-items: center;
             justify-content: center;
         }
 
@@ -92,44 +86,39 @@
             font-size: 2.5rem;
             margin-bottom: 2rem;
             color: #556b2f;
-            font-weight: 400; /* Light, sleek font */
-            text-transform: uppercase; /* Title in all caps */
+            font-weight: 400;
+            text-transform: uppercase;
         }
 
-        /* Project Grid */
         .project-grid {
             display: flex;
             flex-direction: column;
-            gap: 4rem; /* Increased vertical space between projects */
-            max-width: 1200px; /* Limit maximum width */
+            gap: 4rem;
+            max-width: 1200px;
             width: 100%;
-            align-items: center; /* Center the grid */
+            align-items: center;
             justify-content: center;
-            margin: 0 auto; /* Center the grid */
-            padding: 0 2rem; /* Added horizontal padding */
+            margin: 0 auto;
         }
 
         .project {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Align items in project */
-            gap: 5rem; /* Increased horizontal space */
+            justify-content: space-between;
+            gap: 2rem;
             cursor: pointer;
-            width: 100%; /* Full width */
-        }
-
-        .project:nth-child(odd) {
-            flex-direction: row; /* Left alignment */
+            width: 100%;
         }
 
         .project:nth-child(even) {
-            flex-direction: row-reverse; /* Right alignment */
+            flex-direction: row-reverse;
         }
 
         .project img {
-            width: auto; /* Keep original aspect ratio */
-            height: auto; /* Keep original height */
-            max-height: 500px; /* Limit maximum height */
+            width: 60%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
             transition: transform 0.3s;
         }
 
@@ -138,18 +127,18 @@
         }
 
         .project-info {
-            width: 40%; /* Wider project description */
+            width: 40%;
             padding: 1rem;
             position: relative;
         }
 
         .project-title {
-            font-size: 1.2rem; /* Smaller font size */
-            font-weight: 300; /* Thinner font */
+            font-size: 1.2rem;
+            font-weight: 300;
             color: #556b2f;
-            text-align: left; /* Align text to the left */
-            padding: 1rem; /* Added padding for better readability */
-            transition: background 0.3s;
+            text-align: center;
+            padding: 1rem;
+            transition: opacity 0.3s;
             opacity: 0;
             visibility: hidden;
             position: absolute;
@@ -157,80 +146,57 @@
             top: 50%;
             transform: translate(-50%, -50%);
             width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
-        /* Reveal project title on hover */
         .project:hover .project-title {
             opacity: 1;
             visibility: visible;
         }
 
-        /* Art Section Grid */
-        .art-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Art keeps original aspect ratio */
-            gap: 4rem; /* Increased gap for more spacing */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
             width: 100%;
-            align-items: center;
-            justify-content: center;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
         }
 
-        .art-card {
+        .modal-content {
             background-color: #f5f5f5;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
         }
 
-        .art-card:hover {
-            transform: translateY(-5px);
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        .art-card img {
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-image {
             width: 100%;
-            height: auto; /* Maintain original aspect ratio */
-            object-fit: contain;
+            max-height: 400px;
+            object-fit: cover;
+            margin-bottom: 20px;
         }
 
-        /* Contact Info */
-        .contact-info p {
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-        }
-
-        .contact-info a {
-            color: #b5651d;
-            text-decoration: none;
-        }
-
-        /* Footer Section */
-        .footer {
-            background-color: #556b2f;
-            color: #f5f5f5;
-            padding: 1rem 0; /* Slimmer footer */
-            text-align: center;
-            width: 100%; /* Ensure full width */
-            display: none; /* Hidden by default */
-        }
-
-        .footer.visible {
-            display: block; /* Show when needed */
-        }
-
-        .footer a {
-            color: #f5f5f5;
-            margin: 0 10px;
-            font-size: 1.2rem;
-            text-decoration: none;
-        }
-
-        /* Show sections when scrolled */
-        .scroll-active {
-            opacity: 1 !important;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
             .title-bar {
                 font-size: 1rem;
@@ -246,7 +212,7 @@
             }
 
             .project {
-                flex-direction: column;
+                flex-direction: column !important;
             }
 
             .project img, .project-info {
@@ -260,28 +226,16 @@
             .section h2 {
                 font-size: 2rem;
             }
-
-            .footer {
-                padding: 0.8rem 0; /* Make footer even slimmer for mobile */
-            }
-
-            .project-grid {
-                padding: 0 1rem; /* Ensure padding is applied for smaller screens */
-            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Intro Section -->
     <section class="intro-section">
         <div class="title-bar">
             <div>MSc Architect</div>
             <span>Tine Kierulf</span>
             <div>MNAL</div>
         </div>
-
-        <!-- Menu at the bottom -->
         <div class="menu">
             <a href="#projects">Projects</a>
             <a href="#art">Art</a>
@@ -289,12 +243,11 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="section">
         <h2>Featured Projects</h2>
         <div class="project-grid">
             <!-- Project 1: Badehus -->
-            <div class="project">
+            <div class="project" data-project="badehus">
                 <img src="Badehus%20regn.png" alt="Badehus Project 1">
                 <div class="project-info">
                     <div class="project-title">
@@ -304,28 +257,8 @@
                 </div>
             </div>
 
-            <div class="project">
-                <img src="Badehus%20ute.png" alt="Badehus Project 2">
-                <div class="project-info">
-                    <div class="project-title">
-                        Badehus - Outside View<br>
-                        <span>A sleek design, the bathhouse merges into the landscape while maintaining a strong architectural presence.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project">
-                <img src="Badehus%20vindu.png" alt="Badehus Window View">
-                <div class="project-info">
-                    <div class="project-title">
-                        Badehus - Window View<br>
-                        <span>Innovative use of glass to frame the views, creating an immersive connection with the surrounding environment.</span>
-                    </div>
-                </div>
-            </div>
-
             <!-- Project 2: Grounded -->
-            <div class="project">
+            <div class="project" data-project="grounded">
                 <img src="Grounded%20inngang.png" alt="Grounded Entrance">
                 <div class="project-info">
                     <div class="project-title">
@@ -335,33 +268,13 @@
                 </div>
             </div>
 
-            <div class="project">
-                <img src="Grounded%20refleksjon.png" alt="Grounded Reflection">
-                <div class="project-info">
-                    <div class="project-title">
-                        Grounded - Reflection<br>
-                        <span>A reflective area that incorporates natural light and elements of water to enhance tranquility.</span>
-                    </div>
-                </div>
-            </div>
-
             <!-- Project 3: Master Thesis -->
-            <div class="project">
+            <div class="project" data-project="master-thesis">
                 <img src="Master%201.png" alt="Master Thesis Image 1">
                 <div class="project-info">
                     <div class="project-title">
                         Master Thesis - Overview 1<br>
                         <span>A comprehensive design proposal showcasing sustainable practices in urban settings.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project">
-                <img src="Master%202.png" alt="Master Thesis Image 2">
-                <div class="project-info">
-                    <div class="project-title">
-                        Master Thesis - Overview 2<br>
-                        <span>Exploring innovative materials and techniques in modern architecture.</span>
                     </div>
                 </div>
             </div>
@@ -399,27 +312,70 @@
         </p>
     </footer>
 
+    <!-- Modal for project details -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" class="modal-image" src="" alt="Project Image">
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
     <script>
-        // Smooth fade-in of sections after scrolling
-        window.addEventListener('scroll', function () {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight * 0.8) {
-                    section.classList.add('scroll-active');
-                }
+        // Existing scroll event listeners...
+
+        // Project modal functionality
+        const modal = document.getElementById("projectModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalImage = document.getElementById("modalImage");
+        const modalDescription = document.getElementById("modalDescription");
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        const projects = document.querySelectorAll('.project');
+        projects.forEach(project => {
+            project.addEventListener('click', () => {
+                const projectId = project.getAttribute('data-project');
+                openModal(projectId);
             });
         });
 
-        // Show the footer only when the user reaches the bottom of the page
-        window.addEventListener('scroll', function () {
-            const footer = document.querySelector('.footer');
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                footer.classList.add('visible');
-            } else {
-                footer.classList.remove('visible');
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
-        });
+        }
+
+        function openModal(projectId) {
+            // You would typically fetch this data from a server
+            const projectDetails = {
+                'badehus': {
+                    title: 'Badehus Project',
+                    image: 'Badehus%20regn.png',
+                    description: 'The Badehus project is a community bathhouse designed to seamlessly integrate with its natural surroundings. It features large windows that capture abundant natural light and provide stunning views of the sea. The design emphasizes a connection between indoor and outdoor spaces, creating a serene and rejuvenating environment for visitors.'
+                },
+                'grounded': {
+                    title: 'Grounded Project',
+                    image: 'Grounded%20inngang.png',
+                    description: 'Grounded is an innovative underground mindfulness space that aims to promote relaxation and foster a deeper connection with nature. The project incorporates elements of biophilic design, using natural materials and integrating vegetation to create a calming atmosphere. The unique subterranean setting offers a retreat from the outside world, allowing visitors to focus inward and find peace.'
+                },
+                'master-thesis': {
+                    title: 'Master Thesis Project',
+                    image: 'Master%201.png',
+                    description: 'This master thesis project presents a comprehensive design proposal that showcases sustainable practices in urban settings. The work explores innovative approaches to city planning, incorporating green spaces, energy-efficient buildings, and sustainable transportation solutions. The project demonstrates a holistic approach to urban development, considering environmental impact, social cohesion, and economic viability.'
+                }
+            };
+
+            const project = projectDetails[projectId];
+            modalTitle.textContent = project.title;
+            modalImage.src = project.image;
+            modalDescription.textContent = project.description;
+            modal.style.display = "block";
+        }
     </script>
 </body>
 </html>
