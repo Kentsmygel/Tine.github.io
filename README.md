@@ -99,7 +99,7 @@
         .project-grid {
             display: flex;
             flex-direction: column;
-            gap: 5rem; /* More space between projects */
+            gap: 4rem; /* More space between projects */
             max-width: 90%; /* Reduced max width to create more space */
             align-items: center;
             justify-content: center;
@@ -112,7 +112,7 @@
             gap: 2rem;
             cursor: pointer;
             width: 90%; /* Centered and occupies 90% of the width */
-            max-width: 1500px;
+            max-width: 1200px;
         }
 
         .project:nth-child(odd) {
@@ -120,7 +120,7 @@
         }
 
         .project img {
-            width: 60%; /* Wider images */
+            width: 70%; /* Wider images */
             height: 500px; /* Increased height */
             object-fit: cover;
             transition: transform 0.3s;
@@ -131,13 +131,13 @@
         }
 
         .project-info {
-            width: 40%; /* Wider project description */
+            width: 30%; /* Wider project description */
             padding: 1rem;
             position: relative;
         }
 
         .project-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 600;
             color: #556b2f;
             text-align: center;
@@ -205,9 +205,11 @@
             padding: 1rem 0; /* Slimmer footer */
             text-align: center;
             width: 100vw; /* Ensure full width */
-            position: fixed;
-            bottom: 0;
-            left: 0;
+            display: none; /* Hidden by default */
+        }
+
+        .footer.visible {
+            display: block; /* Show when needed */
         }
 
         .footer a {
@@ -397,6 +399,16 @@
                     section.classList.add('scroll-active');
                 }
             });
+        });
+
+        // Show the footer only when the user reaches the bottom of the page
+        window.addEventListener('scroll', function () {
+            const footer = document.querySelector('.footer');
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                footer.classList.add('visible');
+            } else {
+                footer.classList.remove('visible');
+            }
         });
     </script>
 </body>
