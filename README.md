@@ -25,9 +25,9 @@
 
         /* Intro Section */
         .intro {
-            height: 150vh; /* Full height of viewport */
+            height: 100vh; /* Full height of viewport */
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
             background-color: #f5e6cc; /* Soft beige color */
