@@ -100,7 +100,7 @@
         .project-grid {
             display: flex;
             flex-direction: column;
-            gap: 6rem; /* Increased space between projects vertically */
+            gap: 8rem; /* Increased vertical space between projects */
             max-width: 90%; /* Reduced max width to create more space */
             align-items: center; /* Center the content */
             justify-content: center;
@@ -109,8 +109,8 @@
         .project {
             display: flex;
             align-items: center;
-            justify-content: space-around; /* Changed to space-around for horizontal spacing */
-            gap: 3rem; /* More space between the image and text */
+            justify-content: space-between; /* Centered layout */
+            gap: 5rem; /* Increased horizontal space between image and text */
             cursor: pointer;
             width: 100%; /* Centered and occupies full width */
             max-width: 1200px;
@@ -163,7 +163,7 @@
         .art-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Art keeps original aspect ratio */
-            gap: 2rem;
+            gap: 4rem; /* Increased gap for more spacing */
             width: 100vw;
             align-items: center;
             justify-content: center;
