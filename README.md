@@ -100,19 +100,19 @@
         .project-grid {
             display: flex;
             flex-direction: column;
-            gap: 5rem; /* More space between projects */
+            gap: 6rem; /* Increased space between projects vertically */
             max-width: 90%; /* Reduced max width to create more space */
-            align-items: center;
+            align-items: center; /* Center the content */
             justify-content: center;
         }
 
         .project {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
+            justify-content: space-around; /* Changed to space-around for horizontal spacing */
+            gap: 3rem; /* More space between the image and text */
             cursor: pointer;
-            width: 90%; /* Centered and occupies 90% of the width */
+            width: 100%; /* Centered and occupies full width */
             max-width: 1200px;
         }
 
