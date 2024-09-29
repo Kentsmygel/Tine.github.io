@@ -17,8 +17,6 @@
         }
 
         body, html {
-            width: 100%;
-            height: 100%;
             font-family: 'Montserrat', sans-serif; /* Sleek, professional font */
             background-color: #f5f5f5;
             color: #333;
@@ -67,17 +65,17 @@
 
         /* Projects Section */
         .projects {
+            width: 1200px; /* Change this value to increase width */
             padding: 50px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%; /* Ensure full width */
+            margin: auto; /* Center the section */
         }
 
         .project {
             display: flex;
-            width: 100%; /* Full width */
-            max-width: 1200px; /* Limit maximum width */
+            width: 100%; /* Full width of the project section */
             margin: 20px 0;
             align-items: center;
             justify-content: space-between;
@@ -122,12 +120,12 @@
 
         /* Art Section */
         .art-gallery {
+            width: 1200px; /* Change this value to increase width */
             padding: 50px 20px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
-            max-width: 1200px; /* Center gallery */
-            margin: auto;
+            margin: auto; /* Center the gallery */
         }
 
         .art-card {
@@ -148,8 +146,10 @@
 
         /* Contact Section */
         .contact {
+            width: 1200px; /* Change this value to increase width */
             padding: 50px 20px;
             text-align: center;
+            margin: auto; /* Center the contact section */
         }
 
         /* Footer Section */
@@ -182,6 +182,14 @@
 
             .menu {
                 flex-direction: column; /* Stack menu items on mobile */
+            }
+
+            /* Adjust section width on mobile */
+            .projects,
+            .art-gallery,
+            .contact {
+                width: 100%; /* Full width on mobile */
+                padding: 0 10px; /* Adjust padding for mobile */
             }
         }
     </style>
@@ -293,6 +301,6 @@
             <a href="#">LinkedIn</a>
         </p>
     </footer>
-    
 </body>
+
 </html>
