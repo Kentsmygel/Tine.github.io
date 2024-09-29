@@ -28,14 +28,14 @@
 
         /* Intro Section */
         .intro-section {
-            height: 100vh;
+            height: 100vh; /* Full height of viewport */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: #f5e6cc; /* Soft beige color */
             position: relative;
-            width: 100%; /* Ensure it fills the full width */
+            width: 100%; /* Full width */
         }
 
         /* Title across the screen */
@@ -100,10 +100,10 @@
         .project-grid {
             display: flex;
             flex-direction: column;
-            gap: 8rem; /* Increased vertical space between projects */
-            max-width: 1200px;
+            gap: 4rem; /* Increased vertical space between projects */
+            max-width: 1200px; /* Limit maximum width */
             width: 100%;
-            align-items: flex-start; /* Align items to the left */
+            align-items: center; /* Center the grid */
             justify-content: center;
             margin: 0 auto; /* Center the grid */
             padding: 0 2rem; /* Added horizontal padding */
@@ -112,10 +112,18 @@
         .project {
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Align items to the left */
-            gap: 5rem; /* Increased horizontal space between image and text */
+            justify-content: space-between; /* Align items in project */
+            gap: 5rem; /* Increased horizontal space */
             cursor: pointer;
-            width: 100%; /* Centered and occupies full width */
+            width: 100%; /* Full width */
+        }
+
+        .project:nth-child(odd) {
+            flex-direction: row; /* Left alignment */
+        }
+
+        .project:nth-child(even) {
+            flex-direction: row-reverse; /* Right alignment */
         }
 
         .project img {
@@ -130,13 +138,13 @@
         }
 
         .project-info {
-            width: 50%; /* Wider project description */
+            width: 40%; /* Wider project description */
             padding: 1rem;
             position: relative;
         }
 
         .project-title {
-            font-size: 1.4rem; /* Smaller font size */
+            font-size: 1.2rem; /* Smaller font size */
             font-weight: 300; /* Thinner font */
             color: #556b2f;
             text-align: left; /* Align text to the left */
@@ -200,9 +208,9 @@
         .footer {
             background-color: #556b2f;
             color: #f5f5f5;
-            padding: 1rem 0;
+            padding: 1rem 0; /* Slimmer footer */
             text-align: center;
-            width: 100%;
+            width: 100%; /* Ensure full width */
             display: none; /* Hidden by default */
         }
 
