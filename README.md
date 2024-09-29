@@ -65,8 +65,8 @@
 
         /* Projects Section */
         .projects {
-            width: 1200px; /* Change this value to increase width */
-            padding: 50px 20px;
+            width: 1980px; /* Change this value to increase width */
+            padding: 0px 0px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -76,7 +76,7 @@
         .project {
             display: flex;
             width: 100%; /* Full width of the project section */
-            margin: 20px 0;
+            margin: 0px 0;
             align-items: center;
             justify-content: space-between;
             transition: transform 0.3s;
