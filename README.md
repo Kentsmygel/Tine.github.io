@@ -27,15 +27,15 @@
         }
 
         /* Intro Section */
-        .section {
-    width: 100vw; /* Ensure full width */
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the section titles */
-    justify-content: center;
-     }
+        .intro-section {
+            height: 100vh; /* Full height of viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5e6cc; /* Soft beige color */
+            position: relative;
+            width: 100%; /* Ensure it fills the full width */
         }
 
         /* Title across the screen */
@@ -47,7 +47,7 @@
             transform: translateY(-50%);
             display: flex;
             justify-content: space-between;
-            padding: 0 0px;
+            padding: 0 20px;
             font-size: 1.5rem;
             font-weight: 600; /* Thin yet bold */
             color: #556b2f;
@@ -143,6 +143,9 @@
             padding: 1rem;
             position: relative;
             max-width: 600px; /* Limit the width to prevent overflow */
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease; /* Smooth transition for visibility */
+            visibility: hidden; /* Hidden by default */
         }
 
         .project-title {
@@ -159,9 +162,9 @@
         }
 
         /* Reveal project title on hover */
-        .project:hover .project-title {
-            opacity: 1;
-            visibility: visible;
+        .project:hover .project-info {
+            opacity: 1; /* Show the text */
+            visibility: visible; /* Make it visible */
         }
 
         /* Art Section Grid */
