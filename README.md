@@ -28,14 +28,14 @@
 
         /* Intro Section */
         .intro-section {
-            height: 100vh; /* Full height of viewport */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: #f5e6cc; /* Soft beige color */
             position: relative;
-            width: 100%; /* Ensure it fills the full width */
+            width: 100vw; /* Ensure it fills the full width */
         }
 
         /* Title across the screen */
@@ -52,7 +52,7 @@
             font-weight: 600; /* Thin yet bold */
             color: #556b2f;
             white-space: nowrap;
-            max-width: 100%;
+            max-width: 100vw;
         }
 
         /* Menu */
@@ -78,13 +78,13 @@
 
         /* Sections */
         .section {
-            width: 100vw; /* Ensure full width */
-            padding: 4rem 2rem; /* Adjusted padding */
+            width: 100vw;
+            padding: 6rem 2rem;
             opacity: 1;
             transition: opacity 1s ease-in-out;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center the section titles */
+            align-items: center; /* Center the content */
             justify-content: center;
         }
 
@@ -93,45 +93,37 @@
             margin-bottom: 2rem;
             color: #556b2f;
             font-weight: 400; /* Light, sleek font */
-            text-transform: uppercase; /* Title in all caps */
         }
 
         /* Project Grid */
         .project-grid {
             display: flex;
             flex-direction: column;
-            gap: 4rem; /* Increased vertical space between projects */
-            max-width: 1200px; /* Limit maximum width */
-            width: 100%; /* Full width */
-            align-items: center; /* Center the grid */
+            gap: 4rem;
+            max-width: 100%;
+            align-items: center;
             justify-content: center;
-            margin: 0 auto; /* Center the grid */
-            padding: 0 2rem; /* Added horizontal padding */
         }
 
         .project {
             display: flex;
-            align-items: center; /* Center items vertically */
-            justify-content: flex-start; /* Align items to the left */
-            gap: 5rem; /* Increased horizontal space */
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
             cursor: pointer;
-            width: 100%; /* Full width */
+            width: 80%; /* Centered and occupies 80% of the width */
+            max-width: 1200px;
         }
 
         .project:nth-child(odd) {
-            flex-direction: row; /* Left alignment */
-        }
-
-        .project:nth-child(even) {
-            flex-direction: row-reverse; /* Right alignment */
+            flex-direction: row-reverse;
         }
 
         .project img {
-            width: 40%; /* Keep original aspect ratio but smaller */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 400px; /* Limit maximum height */
+            width: 50%;
+            height: 400px;
+            object-fit: cover;
             transition: transform 0.3s;
-            flex: 1; /* Allow image to take available space */
         }
 
         .project:hover img {
@@ -139,40 +131,39 @@
         }
 
         .project-info {
-            width: 50%; /* Wider project description */
+            width: 50%;
             padding: 1rem;
             position: relative;
-            max-width: 600px; /* Limit the width to prevent overflow */
-            opacity: 0; /* Hidden by default */
-            transition: opacity 0.3s ease; /* Smooth transition for visibility */
-            visibility: hidden; /* Hidden by default */
         }
 
         .project-title {
-            font-size: 1.2rem; /* Smaller font size */
-            font-weight: 300; /* Thinner font */
+            font-size: 1.8rem;
+            font-weight: 600;
             color: #556b2f;
-            text-align: center; /* Center the text */
-            padding: 1rem; /* Added padding for better readability */
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1rem;
             transition: background 0.3s;
-            max-height: 3.6rem; /* Limit height to two lines */
-            overflow: hidden; /* Prevent overflow */
-            text-overflow: ellipsis; /* Add ellipsis for overflow */
-            white-space: nowrap; /* Prevent wrapping */
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
         /* Reveal project title on hover */
-        .project:hover .project-info {
-            opacity: 1; /* Show the text */
-            visibility: visible; /* Make it visible */
+        .project:hover .project-title {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Art Section Grid */
         .art-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Art keeps original aspect ratio */
-            gap: 4rem; /* Increased gap for more spacing */
-            width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100vw;
             align-items: center;
             justify-content: center;
         }
@@ -191,8 +182,8 @@
 
         .art-card img {
             width: 100%;
-            height: auto; /* Maintain original aspect ratio */
-            object-fit: contain;
+            height: 200px;
+            object-fit: cover;
         }
 
         /* Contact Info */
@@ -210,14 +201,8 @@
         .footer {
             background-color: #556b2f;
             color: #f5f5f5;
-            padding: 1rem 0; /* Slimmer footer */
+            padding: 2rem 0;
             text-align: center;
-            width: 100%; /* Ensure full width */
-            display: none; /* Hidden by default */
-        }
-
-        .footer.visible {
-            display: block; /* Show when needed */
         }
 
         .footer a {
@@ -262,14 +247,6 @@
             .section h2 {
                 font-size: 2rem;
             }
-
-            .footer {
-                padding: 0.8rem 0; /* Make footer even slimmer for mobile */
-            }
-
-            .project-grid {
-                padding: 0 1rem; /* Ensure padding is applied for smaller screens */
-            }
         }
     </style>
 </head>
@@ -299,30 +276,21 @@
             <div class="project">
                 <img src="Badehus%20regn.png" alt="Badehus Project 1">
                 <div class="project-info">
-                    <div class="project-title">
-                        Badehus - Rainy View<br>
-                        <span>A community bathhouse designed to blend with its natural surroundings, featuring large windows to capture light and views of the sea.</span>
-                    </div>
+                    <div class="project-title">Badehus - Rainy View</div>
                 </div>
             </div>
 
             <div class="project">
                 <img src="Badehus%20ute.png" alt="Badehus Project 2">
                 <div class="project-info">
-                    <div class="project-title">
-                        Badehus - Outside View<br>
-                        <span>A sleek design, the bathhouse merges into the landscape while maintaining a strong architectural presence.</span>
-                    </div>
+                    <div class="project-title">Badehus - Outside View</div>
                 </div>
             </div>
 
             <div class="project">
                 <img src="Badehus%20vindu.png" alt="Badehus Window View">
                 <div class="project-info">
-                    <div class="project-title">
-                        Badehus - Window View<br>
-                        <span>Innovative use of glass to frame the views, creating an immersive connection with the surrounding environment.</span>
-                    </div>
+                    <div class="project-title">Badehus - Window View</div>
                 </div>
             </div>
 
@@ -330,20 +298,14 @@
             <div class="project">
                 <img src="Grounded%20inngang.png" alt="Grounded Entrance">
                 <div class="project-info">
-                    <div class="project-title">
-                        Grounded - Entrance<br>
-                        <span>An underground mindfulness space designed to promote relaxation and a deeper connection to nature.</span>
-                    </div>
+                    <div class="project-title">Grounded - Entrance</div>
                 </div>
             </div>
 
             <div class="project">
                 <img src="Grounded%20refleksjon.png" alt="Grounded Reflection">
                 <div class="project-info">
-                    <div class="project-title">
-                        Grounded - Reflection<br>
-                        <span>A reflective area that incorporates natural light and elements of water to enhance tranquility.</span>
-                    </div>
+                    <div class="project-title">Grounded - Reflection</div>
                 </div>
             </div>
 
@@ -351,20 +313,14 @@
             <div class="project">
                 <img src="Master%201.png" alt="Master Thesis Image 1">
                 <div class="project-info">
-                    <div class="project-title">
-                        Master Thesis - Overview 1<br>
-                        <span>A comprehensive design proposal showcasing sustainable practices in urban settings.</span>
-                    </div>
+                    <div class="project-title">Master Thesis - Overview 1</div>
                 </div>
             </div>
 
             <div class="project">
                 <img src="Master%202.png" alt="Master Thesis Image 2">
                 <div class="project-info">
-                    <div class="project-title">
-                        Master Thesis - Overview 2<br>
-                        <span>Exploring innovative materials and techniques in modern architecture.</span>
-                    </div>
+                    <div class="project-title">Master Thesis - Overview 2</div>
                 </div>
             </div>
         </div>
@@ -411,16 +367,6 @@
                     section.classList.add('scroll-active');
                 }
             });
-        });
-
-        // Show the footer only when the user reaches the bottom of the page
-        window.addEventListener('scroll', function () {
-            const footer = document.querySelector('.footer');
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                footer.classList.add('visible');
-            } else {
-                footer.classList.remove('visible');
-            }
         });
     </script>
 </body>
