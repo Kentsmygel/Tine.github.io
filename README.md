@@ -25,7 +25,7 @@
 
         /* Intro Section */
         .intro {
-            height: 100vh; /* Full height of viewport */
+            height: 150vh; /* Full height of viewport */
             display: flex;
             flex-direction: column;
             justify-content: center;
