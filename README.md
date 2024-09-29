@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arkitekt Tine Kierulf</title>
 
-    <!-- Google Fonts for Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -16,162 +17,125 @@
         }
 
         body, html {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Montserrat', sans-serif;
             background-color: #f5f5f5;
             color: #333;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
         }
 
         /* Intro Section */
-        .intro-section {
+        .intro {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #f5e6cc; /* Soft beige color */
-            position: relative;
+            background-color: #f5e6cc;
+            text-align: center;
         }
 
-        /* Title across the screen */
-        .title-bar {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
+        .title {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
             font-size: 1.5rem;
-            font-weight: 700;
-            color: #556b2f;
-            white-space: nowrap;
-            max-width: 100vw;
+            margin: 20px 0;
         }
 
-        /* Menu */
+        /* Navigation Menu */
         .menu {
             position: absolute;
-            bottom: 40px;
+            top: 20px;
+            right: 20px;
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            font-size: 1rem;
+            gap: 20px;
         }
 
         .menu a {
             text-decoration: none;
             color: #556b2f;
             font-weight: 600;
-            transition: color 0.3s;
         }
 
         .menu a:hover {
             color: #b5651d;
         }
 
-        /* Sections */
-        .section {
-            width: 100vw;
-            padding: 6rem 2rem;
-            opacity: 1;
-            transition: opacity 1s ease-in-out;
+        /* Projects Section */
+        .projects {
+            padding: 50px 20px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center the content */
-            justify-content: center;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #556b2f;
-            font-weight: 400; /* Light, sleek font */
-        }
-
-        /* Project Grid */
-        .project-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            max-width: 100%;
             align-items: center;
-            justify-content: center;
         }
 
         .project {
             display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px 0;
             align-items: center;
             justify-content: space-between;
-            gap: 2rem;
-            cursor: pointer;
-            width: 80%; /* Centered and occupies 80% of the width */
-            max-width: 1200px;
-        }
-
-        .project:nth-child(odd) {
-            flex-direction: row-reverse;
+            transition: transform 0.3s;
+            overflow: hidden;
         }
 
         .project img {
-            width: 50%;
-            height: 400px;
-            object-fit: cover;
+            width: 40%;
+            max-height: 400px;
             transition: transform 0.3s;
+        }
+
+        .project-info {
+            width: 50%;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .project:hover img {
             transform: scale(1.05);
         }
 
-        .project-info {
-            width: 50%;
-            padding: 1rem;
-            position: relative;
-        }
-
-        .project-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #556b2f;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 1rem;
-            transition: background 0.3s;
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Reveal project title on hover */
-        .project:hover .project-title {
+        .project:hover .project-info {
             opacity: 1;
             visibility: visible;
         }
 
-        /* Art Section Grid */
-        .art-grid {
+        .project:nth-child(even) {
+            flex-direction: row-reverse; /* Right alignment for even projects */
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            max-height: 3.6rem; /* Limit height to two lines */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Add ellipsis for overflow */
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        /* Art Section */
+        .art-gallery {
+            padding: 50px 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            width: 100vw;
-            align-items: center;
-            justify-content: center;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
         }
 
         .art-card {
-            background-color: #f5f5f5;
-            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
 
@@ -181,171 +145,136 @@
 
         .art-card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto; /* Maintain aspect ratio */
         }
 
-        /* Contact Info */
-        .contact-info p {
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-        }
-
-        .contact-info a {
-            color: #b5651d;
-            text-decoration: none;
+        /* Contact Section */
+        .contact {
+            padding: 50px 20px;
+            text-align: center;
         }
 
         /* Footer Section */
         .footer {
             background-color: #556b2f;
             color: #f5f5f5;
-            padding: 2rem 0;
+            padding: 20px;
             text-align: center;
         }
 
         .footer a {
             color: #f5f5f5;
             margin: 0 10px;
-            font-size: 1.2rem;
             text-decoration: none;
-        }
-
-        /* Show sections when scrolled */
-        .scroll-active {
-            opacity: 1 !important;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .title-bar {
-                font-size: 1rem;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .menu {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
             .project {
                 flex-direction: column;
             }
 
-            .project img, .project-info {
-                width: 100%;
+            .project img {
+                width: 100%; /* Full width on mobile */
             }
 
-            .section {
-                padding: 4rem 1rem;
-            }
-
-            .section h2 {
-                font-size: 2rem;
+            .project-info {
+                width: 100%; /* Full width on mobile */
             }
         }
     </style>
 </head>
+
 <body>
-
     <!-- Intro Section -->
-    <section class="intro-section">
-        <div class="title-bar">
-            <div>MSc Architect</div>
-            <span>Tine Kierulf</span>
-            <div>MNAL</div>
-        </div>
-
-        <!-- Menu at the bottom -->
+    <div class="intro">
         <div class="menu">
             <a href="#projects">Projects</a>
             <a href="#art">Art</a>
             <a href="#contact">Contact</a>
         </div>
-    </section>
+        <h1 class="title">MSc Architect</h1>
+        <h2 class="subtitle">Tine Kierulf</h2>
+        <h3 class="subtitle">MNAL</h3>
+    </div>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <div id="projects" class="projects">
         <h2>Featured Projects</h2>
-        <div class="project-grid">
-            <!-- Project 1: Badehus -->
-            <div class="project">
-                <img src="Badehus%20regn.png" alt="Badehus Project 1">
-                <div class="project-info">
-                    <div class="project-title">Badehus - Rainy View</div>
-                </div>
-            </div>
-
-            <div class="project">
-                <img src="Badehus%20ute.png" alt="Badehus Project 2">
-                <div class="project-info">
-                    <div class="project-title">Badehus - Outside View</div>
-                </div>
-            </div>
-
-            <div class="project">
-                <img src="Badehus%20vindu.png" alt="Badehus Window View">
-                <div class="project-info">
-                    <div class="project-title">Badehus - Window View</div>
-                </div>
-            </div>
-
-            <!-- Project 2: Grounded -->
-            <div class="project">
-                <img src="Grounded%20inngang.png" alt="Grounded Entrance">
-                <div class="project-info">
-                    <div class="project-title">Grounded - Entrance</div>
-                </div>
-            </div>
-
-            <div class="project">
-                <img src="Grounded%20refleksjon.png" alt="Grounded Reflection">
-                <div class="project-info">
-                    <div class="project-title">Grounded - Reflection</div>
-                </div>
-            </div>
-
-            <!-- Project 3: Master Thesis -->
-            <div class="project">
-                <img src="Master%201.png" alt="Master Thesis Image 1">
-                <div class="project-info">
-                    <div class="project-title">Master Thesis - Overview 1</div>
-                </div>
-            </div>
-
-            <div class="project">
-                <img src="Master%202.png" alt="Master Thesis Image 2">
-                <div class="project-info">
-                    <div class="project-title">Master Thesis - Overview 2</div>
-                </div>
+        <div class="project">
+            <img src="Badehus regn.png" alt="Badehus Project 1">
+            <div class="project-info">
+                <div class="project-title">Badehus - Rainy View</div>
+                <div class="project-description">A community bathhouse designed to blend with its natural surroundings, featuring large windows to capture light and views of the sea.</div>
             </div>
         </div>
-    </section>
+
+        <div class="project">
+            <img src="Badehus ute.png" alt="Badehus Project 2">
+            <div class="project-info">
+                <div class="project-title">Badehus - Outside View</div>
+                <div class="project-description">A sleek design, the bathhouse merges into the landscape while maintaining a strong architectural presence.</div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="Badehus vindu.png" alt="Badehus Window View">
+            <div class="project-info">
+                <div class="project-title">Badehus - Window View</div>
+                <div class="project-description">Innovative use of glass to frame the views, creating an immersive connection with the surrounding environment.</div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="Grounded inngang.png" alt="Grounded Entrance">
+            <div class="project-info">
+                <div class="project-title">Grounded - Entrance</div>
+                <div class="project-description">An underground mindfulness space designed to promote relaxation and a deeper connection to nature.</div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="Grounded refleksjon.png" alt="Grounded Reflection">
+            <div class="project-info">
+                <div class="project-title">Grounded - Reflection</div>
+                <div class="project-description">A reflective area that incorporates natural light and elements of water to enhance tranquility.</div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="Master 1.png" alt="Master Thesis Image 1">
+            <div class="project-info">
+                <div class="project-title">Master Thesis - Overview 1</div>
+                <div class="project-description">A comprehensive design proposal showcasing sustainable practices in urban settings.</div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="Master 2.png" alt="Master Thesis Image 2">
+            <div class="project-info">
+                <div class="project-title">Master Thesis - Overview 2</div>
+                <div class="project-description">Exploring innovative materials and techniques in modern architecture.</div>
+            </div>
+        </div>
+    </div>
 
     <!-- Art Section -->
-    <section id="art" class="section">
+    <div id="art" class="art-gallery">
         <h2>Art Gallery</h2>
-        <div class="art-grid">
-            <div class="art-card">
-                <img src="Maleri%201.jpg" alt="Art 1">
-            </div>
-            <div class="art-card">
-                <img src="Maleri%202.jpg" alt="Art 2">
-            </div>
+        <div class="art-card">
+            <img src="Maleri 1.jpg" alt="Art 1">
         </div>
-    </section>
+        <div class="art-card">
+            <img src="Maleri 2.jpg" alt="Art 2">
+        </div>
+    </div>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <div id="contact" class="contact">
         <h2>Contact</h2>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:tine.kierulf@hotmail.com">tine.kierulf@hotmail.com</a></p>
-            <p>Phone: +47 916 80 318</p>
-        </div>
-    </section>
+        <p>Email: <a href="mailto:tine.kierulf@hotmail.com">tine.kierulf@hotmail.com</a></p>
+        <p>Phone: +47 916 80 318</p>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -355,18 +284,6 @@
             <a href="#">LinkedIn</a>
         </p>
     </footer>
-
-    <script>
-        // Smooth fade-in of sections after scrolling
-        window.addEventListener('scroll', function () {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight * 0.8) {
-                    section.classList.add('scroll-active');
-                }
-            });
-        });
-    </script>
+    
 </body>
 </html>
