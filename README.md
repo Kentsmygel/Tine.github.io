@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tine Kierulf - Architecture & Art Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+    <title>Arkitekt Tine Kierulf - Architecture Portfolio</title>
+
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -12,40 +15,46 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #fafafa;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
             color: #333;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
+
         /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
         .navbar ul {
+            list-style: none;
             display: flex;
-            justify-content: space-around;
-            padding: 1rem;
-            list-style-type: none;
+            gap: 2rem;
         }
         .navbar ul li a {
             text-decoration: none;
             color: #333;
+            font-weight: 600;
             font-size: 1.1rem;
-            font-weight: bold;
             transition: color 0.3s;
         }
         .navbar ul li a:hover {
-            color: #6b8f42;
+            color: #4CAF50;
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
-            background-image: url('https://source.unsplash.com/1600x900/?architecture');
+            background-image: url('https://source.unsplash.com/1600x900/?modern-building');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -53,59 +62,98 @@
             justify-content: center;
             color: white;
             text-align: center;
+            position: relative;
         }
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
+            font-family: 'Roboto Slab', serif;
+            font-size: 6rem;
+            letter-spacing: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.5rem 2rem;
+            backdrop-filter: blur(6px);
         }
         .hero p {
             font-size: 1.5rem;
             margin-top: 1rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
+            backdrop-filter: blur(6px);
+            color: #e0e0e0;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
         }
 
-        /* Projects Section */
+        /* Parallax Scrolling Effect */
+        .parallax {
+            background-image: url('https://source.unsplash.com/1600x900/?nature,light');
+            height: 70vh;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Projects Section with Carousel */
         .projects-section {
-            padding: 4rem 2rem;
-            background-color: #f5f5f5;
+            padding: 6rem 2rem;
+            background-color: #f4f4f4;
             text-align: center;
         }
         .projects-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-family: 'Roboto Slab', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
             color: #333;
         }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 0 2rem;
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .carousel-wrapper {
+            display: flex;
+            overflow: hidden;
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease;
         }
         .project-card {
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 300px;
+            margin: 0 1rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
             overflow: hidden;
-            border-radius: 10px;
-            transition: transform 0.3s;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .project-card:hover {
+            transform: translateY(-10px) rotateY(3deg);
         }
         .project-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            transition: transform 0.3s;
-        }
-        .project-card:hover img {
-            transform: scale(1.05);
         }
         .project-info {
             padding: 1.5rem;
         }
         .project-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Roboto Slab', serif;
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
@@ -114,80 +162,65 @@
             font-size: 1rem;
         }
 
+        /* Carousel Navigation */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            z-index: 1;
+            transition: background-color 0.3s;
+        }
+        .carousel-btn:hover {
+            background-color: #333;
+            color: white;
+        }
+        .prev-btn {
+            left: -50px;
+        }
+        .next-btn {
+            right: -50px;
+        }
+
         /* Art Section */
         .art-section {
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
         }
         .art-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-family: 'Roboto Slab', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
         }
         .art-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            padding: 0 2rem;
         }
         .art-card {
             position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
         .art-card img {
             width: 100%;
             height: 300px;
             object-fit: cover;
-            border-radius: 10px;
+            transition: transform 0.3s;
         }
         .art-card:hover img {
-            opacity: 0.8;
-        }
-
-        /* What I'm Working On Section */
-        .working-section {
-            padding: 4rem 2rem;
-            background-color: #fafafa;
-            text-align: center;
-        }
-        .working-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-        .working-content {
-            max-width: 800px;
-            margin: 0 auto;
-            color: #555;
-            font-size: 1.2rem;
-        }
-
-        /* CV Section */
-        .cv-section {
-            padding: 4rem 2rem;
-            background-color: #e2efe2;
-            text-align: center;
-        }
-        .cv-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-        .cv-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-            font-size: 1.2rem;
-            line-height: 1.8;
-        }
-        .cv-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            transform: scale(1.1);
         }
 
         /* Footer Section */
         .footer {
             background-color: #333;
-            color: #fff;
+            color: white;
             padding: 2rem 0;
             text-align: center;
         }
@@ -196,29 +229,23 @@
             margin: 0.5rem 0;
         }
         .footer a {
-            color: #6b8f42;
+            color: #4CAF50;
             margin: 0 10px;
             font-size: 1.2rem;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            .projects-grid, .art-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar">
+        <div class="brand-logo">
+            <h3>Arkitekt Tine Kierulf</h3>
+        </div>
         <ul>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#art">Art</a></li>
-            <li><a href="#working">What I'm Working On</a></li>
+            <li><a href="#working">Current Work</a></li>
             <li><a href="#cv">CV</a></li>
         </ul>
     </nav>
@@ -226,81 +253,77 @@
     <!-- Hero Section -->
     <section class="hero">
         <div>
-            <h1>Your Name</h1>
-            <p>Architectural Designer & Visual Artist</p>
+            <h1>Arkitekt Tine Kierulf</h1>
+            <p>Innovative Design | Timeless Architecture</p>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Parallax Scrolling Section -->
+    <div class="parallax"></div>
+
+    <!-- Projects Section with Carousel -->
     <section id="projects" class="projects-section">
         <h2>Featured Projects</h2>
-        <div class="projects-grid">
-            <!-- 6 Project Cards -->
-            <div class="project-card">
-                <img src="https://source.unsplash.com/300x200/?building1" alt="Project 1">
-                <div class="project-info">
-                    <h3 class="project-title">Modern Skyscraper</h3>
-                    <p class="project-description">A sleek, innovative tower in the heart of the city.</p>
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">&#10094;</button>
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <!-- Carousel items -->
+                    <div class="project-card">
+                        <img src="https://source.unsplash.com/300x200/?modern-building1" alt="Project 1">
+                        <div class="project-info">
+                            <h3 class="project-title">Modern Villa</h3>
+                            <p class="project-description">A minimalistic modern villa design.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://source.unsplash.com/300x200/?modern-building2" alt="Project 2">
+                        <div class="project-info">
+                            <h3 class="project-title">Sustainable Office</h3>
+                            <p class="project-description">Eco-friendly office space.</p>
+                        </div>
+                    </div>
+                    <!-- Add more project cards -->
                 </div>
             </div>
-            <div class="project-card">
-                <img src="https://source.unsplash.com/300x200/?building2" alt="Project 2">
-                <div class="project-info">
-                    <h3 class="project-title">Eco-friendly Office</h3>
-                    <p class="project-description">A sustainable, green office space harmonizing with nature.</p>
-                </div>
-            </div>
-            <!-- Add 4 more project cards similarly -->
+            <button class="carousel-btn next-btn" onclick="moveCarousel(1)">&#10095;</button>
         </div>
     </section>
 
     <!-- Art Section -->
     <section id="art" class="art-section">
-        <h2>Art Gallery</h2>
+        <h2>Art Portfolio</h2>
         <div class="art-grid">
-            <!-- Paintings or Artworks -->
             <div class="art-card">
-                <img src="https://source.unsplash.com/250x300/?art1" alt="Painting 1">
+                <img src="https://source.unsplash.com/300x300/?abstract-art1" alt="Art 1">
             </div>
             <div class="art-card">
-                <img src="https://source.unsplash.com/250x300/?art2" alt="Painting 2">
+                <img src="https://source.unsplash.com/300x300/?abstract-art2" alt="Art 2">
             </div>
-            <!-- Add 4 more art cards similarly -->
         </div>
     </section>
 
-    <!-- What I'm Working On Section -->
-    <section id="working" class="working-section">
-        <h2>What I’m Working On Now</h2>
-        <div class="working-content">
-            <p>Currently, I’m exploring sustainable architecture solutions and designing an eco-friendly retreat in a rural setting. I'm also creating a series of paintings inspired by natural landscapes and abstract forms.</p>
-        </div>
-    </section>
-
-    <!-- CV Section -->
-    <section id="cv" class="cv-section">
-        <h2>Curriculum Vitae</h2>
-        <div class="cv-content">
-            <h3>Experience</h3>
-            <p><strong>Lead Architect</strong> - ABC Design Studio, 2019-2023</p>
-            <p><strong>Architectural Intern</strong> - XYZ Architects, 2017-2019</p>
-
-            <h3>Education</h3>
-            <p><strong>M.Arch</strong> - University of Design, 2016</p>
-            <p><strong>B.Arch</strong> - University of Fine Arts, 2014</p>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer class="footer">
-        <p>© 2024 Your Name - All Rights Reserved</p>
-        <p>Contact: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-        <p>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a> |
-            <a href="https://instagram.com" target="_blank">Instagram</a> |
-            <a href="https://behance.net" target="_blank">Behance</a>
+        <p>© 2024 Arkitekt Tine Kierulf. All Rights Reserved.</p>
+        <p>Follow me on:
+            <a href="#">Instagram</a> | 
+            <a href="#">LinkedIn</a> | 
+            <a href="#">Twitter</a>
         </p>
     </footer>
 
+    <script>
+        let currentSlide = 0;
+
+        function moveCarousel(direction) {
+            const track = document.querySelector('.carousel-track');
+            const slides = document.querySelectorAll('.project-card');
+            const slideWidth = slides[0].offsetWidth + 32;  // Including margin
+
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            track.style.transform = 'translateX(' + (-currentSlide * slideWidth) + 'px)';
+        }
+    </script>
 </body>
 </html>
