@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arkitekt Tine Kierulf</title>
 
-    <!-- Google Fonts for Professional Sleek Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -19,7 +19,7 @@
             width: 100%;
             height: 100%;
             margin: 0;
-            font-family: 'Montserrat', sans-serif; /* Sleek, professional font */
+            font-family: 'Segoe UI', Arial, sans-serif;
             scroll-behavior: smooth;
             background-color: #f5f5f5;
             color: #333;
@@ -35,7 +35,6 @@
             align-items: center;
             background-color: #f5e6cc; /* Soft beige color */
             position: relative;
-            width: 100vw; /* Ensure it fills the full width */
         }
 
         /* Title across the screen */
@@ -49,7 +48,7 @@
             justify-content: space-between;
             padding: 0 20px;
             font-size: 1.5rem;
-            font-weight: 600; /* Thin yet bold */
+            font-weight: 700;
             color: #556b2f;
             white-space: nowrap;
             max-width: 100vw;
