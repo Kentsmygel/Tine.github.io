@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arkitekt Tine Kierulf - Architecture Portfolio</title>
+    <title>Arkitekt Tine Kierulf</title>
 
-    <!-- Google Fonts for modern typography -->
+    <!-- Google Fonts for Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS for icons (language switcher, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         * {
@@ -14,97 +17,86 @@
             padding: 0;
             box-sizing: border-box;
         }
-        body {
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 1rem;
-            z-index: 1000;
+        /* Full screen layout for the intro section */
+        .intro-section {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5e6cc; /* Soft beige color */
+            position: relative;
+        }
+
+        /* Title across the screen */
+        .title-bar {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            padding: 1rem 2rem;
+            color: #333;
+            font-size: 2rem;
+            font-family: 'Roboto Slab', serif;
+            letter-spacing: 0.1rem;
         }
-        .navbar ul {
-            list-style: none;
+        .title-bar span {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Menu */
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
+            font-size: 1rem;
         }
-        .navbar ul li a {
+        .menu a {
             text-decoration: none;
             color: #333;
             font-weight: 600;
-            font-size: 1.1rem;
             transition: color 0.3s;
         }
-        .navbar ul li a:hover {
-            color: #4CAF50;
+        .menu a:hover {
+            color: #6b8f42;
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background-image: url('https://source.unsplash.com/1600x900/?modern-building');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-        .hero h1 {
-            font-family: 'Roboto Slab', serif;
-            font-size: 6rem;
-            letter-spacing: 1.5rem;
-            text-transform: uppercase;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 0.5rem 2rem;
-            backdrop-filter: blur(6px);
-        }
-        .hero p {
-            font-size: 1.5rem;
-            margin-top: 1rem;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 0.5rem;
-            backdrop-filter: blur(6px);
-            color: #e0e0e0;
-        }
-        .hero::before {
-            content: '';
+        /* Language Switcher (Flag icons) */
+        .language-switcher {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 1rem;
+        }
+        .language-switcher img {
+            width: 30px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .language-switcher img:hover {
+            transform: scale(1.1);
         }
 
-        /* Parallax Scrolling Effect */
-        .parallax {
-            background-image: url('https://source.unsplash.com/1600x900/?nature,light');
-            height: 70vh;
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Projects Section with Carousel */
+        /* Projects Section */
         .projects-section {
+            width: 100%;
             padding: 6rem 2rem;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
         .projects-section h2 {
             font-family: 'Roboto Slab', serif;
@@ -112,45 +104,30 @@
             margin-bottom: 3rem;
             color: #333;
         }
-        .carousel-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .carousel-wrapper {
-            display: flex;
-            overflow: hidden;
-            width: 80%;
-            max-width: 1200px;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.4s ease;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
         }
         .project-card {
-            min-width: 300px;
-            margin: 0 1rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
+            position: relative;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-        .project-card:hover {
-            transform: translateY(-10px) rotateY(3deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
         .project-card img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .project-card:hover img {
+            transform: scale(1.1);
         }
         .project-info {
-            padding: 1.5rem;
+            padding: 1rem;
         }
         .project-title {
             font-family: 'Roboto Slab', serif;
@@ -162,33 +139,39 @@
             font-size: 1rem;
         }
 
-        /* Carousel Navigation */
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.7);
-            color: #333;
-            border: none;
-            padding: 1rem;
-            cursor: pointer;
-            z-index: 1;
-            transition: background-color 0.3s;
+        /* CV Section */
+        .cv-section {
+            padding: 6rem 2rem;
+            background-color: #f7f7f7;
+            text-align: center;
         }
-        .carousel-btn:hover {
-            background-color: #333;
-            color: white;
+        .cv-section h2 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
         }
-        .prev-btn {
-            left: -50px;
+        .cv-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
-        .next-btn {
-            right: -50px;
+        .cv-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .cv-download {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #6b8f42;
         }
 
         /* Art Section */
         .art-section {
             padding: 6rem 2rem;
+            background-color: #ffffff;
             text-align: center;
         }
         .art-section h2 {
@@ -198,14 +181,14 @@
         }
         .art-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
         .art-card {
-            position: relative;
+            border-radius: 10px;
             overflow: hidden;
-            border-radius: 15px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
         .art-card img {
             width: 100%;
@@ -215,6 +198,22 @@
         }
         .art-card:hover img {
             transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 2rem;
+            background-color: #f7f7f7;
+            text-align: center;
+        }
+        .contact-section h2 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+        .contact-info {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         /* Footer Section */
@@ -229,64 +228,94 @@
             margin: 0.5rem 0;
         }
         .footer a {
-            color: #4CAF50;
+            color: #6b8f42;
             margin: 0 10px;
             font-size: 1.2rem;
         }
+
+        /* Smooth Scroll Animations */
+        .scroll-active {
+            opacity: 1 !important;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .title-bar {
+                flex-direction: column;
+                text-align: center;
+                font-size: 1.5rem;
+                letter-spacing: 0.05rem;
+            }
+            .menu {
+                font-size: 0.9rem;
+            }
+            .language-switcher img {
+                width: 25px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
-
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="brand-logo">
-            <h3>Arkitekt Tine Kierulf</h3>
-        </div>
-        <ul>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#art">Art</a></li>
-            <li><a href="#working">Current Work</a></li>
-            <li><a href="#cv">CV</a></li>
-        </ul>
-    </nav>
+    <!-- Language Switcher with Norwegian and English Flags -->
+    <div class="language-switcher">
+        <img src="norwegian-flag.png" alt="Norwegian" onclick="changeLanguage('no')">
+        <img src="english-flag.png" alt="English" onclick="changeLanguage('en')">
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div>
-            <h1>Arkitekt Tine Kierulf</h1>
-            <p>Innovative Design | Timeless Architecture</p>
+    <!-- Minimalist Intro Section -->
+    <section class="intro-section">
+        <div class="title-bar">
+            <div>MSc Architect</div>
+            <span>Tine Kierulf</span>
+            <div>MNAL</div>
+        </div>
+        <!-- Simple Menu -->
+        <div class="menu">
+            <a href="#projects">Projects</a>
+            <a href="#cv">CV</a>
+            <a href="#art">Art</a>
+            <a href="#contact">Contact</a>
         </div>
     </section>
 
-    <!-- Parallax Scrolling Section -->
-    <div class="parallax"></div>
-
-    <!-- Projects Section with Carousel -->
+    <!-- Projects Section -->
     <section id="projects" class="projects-section">
         <h2>Featured Projects</h2>
-        <div class="carousel-container">
-            <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">&#10094;</button>
-            <div class="carousel-wrapper">
-                <div class="carousel-track">
-                    <!-- Carousel items -->
-                    <div class="project-card">
-                        <img src="https://source.unsplash.com/300x200/?modern-building1" alt="Project 1">
-                        <div class="project-info">
-                            <h3 class="project-title">Modern Villa</h3>
-                            <p class="project-description">A minimalistic modern villa design.</p>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="https://source.unsplash.com/300x200/?modern-building2" alt="Project 2">
-                        <div class="project-info">
-                            <h3 class="project-title">Sustainable Office</h3>
-                            <p class="project-description">Eco-friendly office space.</p>
-                        </div>
-                    </div>
-                    <!-- Add more project cards -->
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <img src="https://source.unsplash.com/300x200/?architecture1" alt="Project 1">
+                <div class="project-info">
+                    <h3 class="project-title">Modern Villa</h3>
+                    <p class="project-description">A minimalistic modern villa design.</p>
                 </div>
             </div>
-            <button class="carousel-btn next-btn" onclick="moveCarousel(1)">&#10095;</button>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="https://source.unsplash.com/300x200/?architecture2" alt="Project 2">
+                <div class="project-info">
+                    <h3 class="project-title">Sustainable Office</h3>
+                    <p class="project-description">Eco-friendly office space.</p>
+                </div>
+            </div>
+            <!-- More project cards as needed -->
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="cv-section">
+        <h2>Curriculum Vitae</h2>
+        <div class="cv-content">
+            <h3>Experience</h3>
+            <p><strong>Independent Architect</strong> - Arkitekt Tine Kierulf, 2023-present</p>
+            <p><strong>Lead Architect</strong> - Badehuset PULS project, Norway</p>
+            <p><strong>Speaker</strong> - New European Bauhaus Conference, 2022</p>
+            <div class="cv-download">
+                <a href="Tine-2023-Portfolio.pdf" download>Download Full CV (PDF)</a>
+            </div>
         </div>
     </section>
 
@@ -295,11 +324,21 @@
         <h2>Art Portfolio</h2>
         <div class="art-grid">
             <div class="art-card">
-                <img src="https://source.unsplash.com/300x300/?abstract-art1" alt="Art 1">
+                <img src="https://source.unsplash.com/300x300/?watercolor-art1" alt="Art 1">
             </div>
             <div class="art-card">
-                <img src="https://source.unsplash.com/300x300/?abstract-art2" alt="Art 2">
+                <img src="https://source.unsplash.com/300x300/?watercolor-art2" alt="Art 2">
             </div>
+            <!-- Add more art cards as needed -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:tine.kierulf@hotmail.com">tine.kierulf@hotmail.com</a></p>
+            <p>Phone: +47 916 80 318</p>
         </div>
     </section>
 
@@ -307,23 +346,46 @@
     <footer class="footer">
         <p>© 2024 Arkitekt Tine Kierulf. All Rights Reserved.</p>
         <p>Follow me on:
-            <a href="#">Instagram</a> | 
-            <a href="#">LinkedIn</a> | 
+            <a href="#">Instagram</a> |
+            <a href="#">LinkedIn</a> |
             <a href="#">Twitter</a>
         </p>
     </footer>
 
     <script>
-        let currentSlide = 0;
-
-        function moveCarousel(direction) {
-            const track = document.querySelector('.carousel-track');
-            const slides = document.querySelectorAll('.project-card');
-            const slideWidth = slides[0].offsetWidth + 32;  // Including margin
-
-            currentSlide = (currentSlide + direction + slides.length) % slides.length;
-            track.style.transform = 'translateX(' + (-currentSlide * slideWidth) + 'px)';
+        /* Function to handle language change */
+        function changeLanguage(lang) {
+            if (lang === 'no') {
+                // Change all text to Norwegian
+                document.querySelector('.title-bar span').textContent = 'Tine Kierulf';
+                document.querySelector('.menu a[href="#projects"]').textContent = 'Prosjekter';
+                document.querySelector('.menu a[href="#cv"]').textContent = 'CV';
+                document.querySelector('.menu a[href="#art"]').textContent = 'Kunst';
+                document.querySelector('.menu a[href="#contact"]').textContent = 'Kontakt';
+                document.querySelector('#cv h2').textContent = 'Curriculum Vitae';
+                document.querySelector('#art h2').textContent = 'Kunst';
+            } else {
+                // Change all text to English
+                document.querySelector('.title-bar span').textContent = 'Tine Kierulf';
+                document.querySelector('.menu a[href="#projects"]').textContent = 'Projects';
+                document.querySelector('.menu a[href="#cv"]').textContent = 'CV';
+                document.querySelector('.menu a[href="#art"]').textContent = 'Art';
+                document.querySelector('.menu a[href="#contact"]').textContent = 'Contact';
+                document.querySelector('#cv h2').textContent = 'Curriculum Vitae';
+                document.querySelector('#art h2').textContent = 'Art';
+            }
         }
+
+        // Smooth reveal of sections after scroll
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('.projects-section, .cv-section, .art-section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight * 0.8) {
+                    section.classList.add('scroll-active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
