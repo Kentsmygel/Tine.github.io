@@ -111,8 +111,8 @@
 
         .project {
             display: flex;
-            align-items: flex-start; /* Align items to the top */
-            justify-content: space-between; /* Align items to the left */
+            align-items: center; /* Center items vertically */
+            justify-content: flex-start; /* Align items to the left */
             gap: 5rem; /* Increased horizontal space */
             cursor: pointer;
             width: 100%; /* Full width */
@@ -127,9 +127,9 @@
         }
 
         .project img {
-            width: auto; /* Keep original aspect ratio */
-            height: auto; /* Keep original height */
-            max-height: 500px; /* Limit maximum height */
+            width: 40%; /* Keep original aspect ratio but smaller */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 400px; /* Limit maximum height */
             transition: transform 0.3s;
             flex: 1; /* Allow image to take available space */
         }
@@ -142,22 +142,20 @@
             width: 50%; /* Wider project description */
             padding: 1rem;
             position: relative;
+            max-width: 600px; /* Limit the width to prevent overflow */
         }
 
         .project-title {
             font-size: 1.2rem; /* Smaller font size */
             font-weight: 300; /* Thinner font */
             color: #556b2f;
-            text-align: left; /* Align text to the left */
+            text-align: center; /* Center the text */
             padding: 1rem; /* Added padding for better readability */
             transition: background 0.3s;
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
+            max-height: 3.6rem; /* Limit height to two lines */
+            overflow: hidden; /* Prevent overflow */
+            text-overflow: ellipsis; /* Add ellipsis for overflow */
+            white-space: nowrap; /* Prevent wrapping */
         }
 
         /* Reveal project title on hover */
