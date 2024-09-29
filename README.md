@@ -78,7 +78,7 @@
 
         /* Sections */
         .section {
-            width: 100%;
+            width: 100vw; /* Ensure full width */
             padding: 4rem 2rem; /* Adjusted padding */
             opacity: 1;
             transition: opacity 1s ease-in-out;
@@ -104,6 +104,7 @@
             max-width: 1200px; /* Limit maximum width */
             width: 100%; /* Full width */
             align-items: center; /* Center the grid */
+            justify-content: center;
             margin: 0 auto; /* Center the grid */
             padding: 0 2rem; /* Added horizontal padding */
         }
@@ -111,7 +112,7 @@
         .project {
             display: flex;
             align-items: flex-start; /* Align items to the top */
-            justify-content: flex-start; /* Align items to the left */
+            justify-content: space-between; /* Align items to the left */
             gap: 5rem; /* Increased horizontal space */
             cursor: pointer;
             width: 100%; /* Full width */
@@ -130,6 +131,7 @@
             height: auto; /* Keep original height */
             max-height: 500px; /* Limit maximum height */
             transition: transform 0.3s;
+            flex: 1; /* Allow image to take available space */
         }
 
         .project:hover img {
