@@ -19,12 +19,11 @@
             width: 100%;
             height: 100%;
             margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Sleek, professional font */
             scroll-behavior: smooth;
             background-color: #f5f5f5;
             color: #333;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         /* Intro Section */
@@ -34,9 +33,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #f5e6cc;
+            background-color: #f5e6cc; /* Soft beige color */
             position: relative;
-            width: 100%;
+            width: 100%; /* Ensure it fills the full width */
         }
 
         /* Title across the screen */
@@ -50,7 +49,7 @@
             justify-content: space-between;
             padding: 0 20px;
             font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 600; /* Thin yet bold */
             color: #556b2f;
             white-space: nowrap;
             max-width: 100%;
@@ -80,12 +79,12 @@
         /* Sections */
         .section {
             width: 100%;
-            padding: 6rem 2rem;
+            padding: 4rem 2rem; /* Adjusted padding */
             opacity: 1;
             transition: opacity 1s ease-in-out;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Center the section titles */
             justify-content: center;
         }
 
@@ -93,39 +92,36 @@
             font-size: 2.5rem;
             margin-bottom: 2rem;
             color: #556b2f;
-            font-weight: 400;
-            text-transform: uppercase;
+            font-weight: 400; /* Light, sleek font */
+            text-transform: uppercase; /* Title in all caps */
         }
 
         /* Project Grid */
         .project-grid {
             display: flex;
             flex-direction: column;
-            gap: 8rem;
+            gap: 8rem; /* Increased vertical space between projects */
             max-width: 1200px;
             width: 100%;
-            align-items: center;
+            align-items: flex-start; /* Align items to the left */
             justify-content: center;
-            margin: 0 auto;
+            margin: 0 auto; /* Center the grid */
+            padding: 0 2rem; /* Added horizontal padding */
         }
 
         .project {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 5rem;
+            justify-content: flex-start; /* Align items to the left */
+            gap: 5rem; /* Increased horizontal space between image and text */
             cursor: pointer;
-            width: 100%;
-        }
-
-        .project:nth-child(odd) {
-            flex-direction: row-reverse;
+            width: 100%; /* Centered and occupies full width */
         }
 
         .project img {
-            width: 70%;
-            height: 500px;
-            object-fit: cover;
+            width: auto; /* Keep original aspect ratio */
+            height: auto; /* Keep original height */
+            max-height: 500px; /* Limit maximum height */
             transition: transform 0.3s;
         }
 
@@ -134,17 +130,17 @@
         }
 
         .project-info {
-            width: 30%;
+            width: 50%; /* Wider project description */
             padding: 1rem;
             position: relative;
         }
 
         .project-title {
-            font-size: 1.4rem;
-            font-weight: 300;
+            font-size: 1.4rem; /* Smaller font size */
+            font-weight: 300; /* Thinner font */
             color: #556b2f;
-            text-align: center;
-            padding: 1rem;
+            text-align: left; /* Align text to the left */
+            padding: 1rem; /* Added padding for better readability */
             transition: background 0.3s;
             opacity: 0;
             visibility: hidden;
@@ -155,6 +151,7 @@
             width: 100%;
         }
 
+        /* Reveal project title on hover */
         .project:hover .project-title {
             opacity: 1;
             visibility: visible;
@@ -163,8 +160,8 @@
         /* Art Section Grid */
         .art-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Art keeps original aspect ratio */
+            gap: 4rem; /* Increased gap for more spacing */
             width: 100%;
             align-items: center;
             justify-content: center;
@@ -184,7 +181,7 @@
 
         .art-card img {
             width: 100%;
-            height: auto;
+            height: auto; /* Maintain original aspect ratio */
             object-fit: contain;
         }
 
@@ -206,11 +203,11 @@
             padding: 1rem 0;
             text-align: center;
             width: 100%;
-            display: none;
+            display: none; /* Hidden by default */
         }
 
         .footer.visible {
-            display: block;
+            display: block; /* Show when needed */
         }
 
         .footer a {
@@ -257,11 +254,11 @@
             }
 
             .footer {
-                padding: 0.8rem 0;
+                padding: 0.8rem 0; /* Make footer even slimmer for mobile */
             }
 
             .project-grid {
-                padding: 0 1rem;
+                padding: 0 1rem; /* Ensure padding is applied for smaller screens */
             }
         }
     </style>
