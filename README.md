@@ -99,8 +99,8 @@
         .project-grid {
             display: flex;
             flex-direction: column;
-            gap: 4rem;
-            max-width: 100%;
+            gap: 5rem; /* More space between projects */
+            max-width: 90%; /* Reduced max width to create more space */
             align-items: center;
             justify-content: center;
         }
@@ -111,8 +111,8 @@
             justify-content: space-between;
             gap: 2rem;
             cursor: pointer;
-            width: 80%; /* Centered and occupies 80% of the width */
-            max-width: 1200px;
+            width: 90%; /* Centered and occupies 90% of the width */
+            max-width: 1500px;
         }
 
         .project:nth-child(odd) {
@@ -120,8 +120,8 @@
         }
 
         .project img {
-            width: 50%;
-            height: 400px;
+            width: 60%; /* Wider images */
+            height: 500px; /* Increased height */
             object-fit: cover;
             transition: transform 0.3s;
         }
@@ -131,7 +131,7 @@
         }
 
         .project-info {
-            width: 50%;
+            width: 40%; /* Wider project description */
             padding: 1rem;
             position: relative;
         }
@@ -141,8 +141,8 @@
             font-weight: 600;
             color: #556b2f;
             text-align: center;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
             transition: background 0.3s;
             opacity: 0;
             visibility: hidden;
@@ -150,6 +150,7 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
+            width: 100%;
         }
 
         /* Reveal project title on hover */
@@ -161,7 +162,7 @@
         /* Art Section Grid */
         .art-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Art keeps original aspect ratio */
             gap: 2rem;
             width: 100vw;
             align-items: center;
@@ -182,8 +183,8 @@
 
         .art-card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto; /* Maintain original aspect ratio */
+            object-fit: contain;
         }
 
         /* Contact Info */
@@ -201,8 +202,12 @@
         .footer {
             background-color: #556b2f;
             color: #f5f5f5;
-            padding: 2rem 0;
+            padding: 1rem 0; /* Slimmer footer */
             text-align: center;
+            width: 100vw; /* Ensure full width */
+            position: fixed;
+            bottom: 0;
+            left: 0;
         }
 
         .footer a {
@@ -247,6 +252,10 @@
             .section h2 {
                 font-size: 2rem;
             }
+
+            .footer {
+                padding: 0.8rem 0; /* Make footer even slimmer for mobile */
+            }
         }
     </style>
 </head>
@@ -276,21 +285,30 @@
             <div class="project">
                 <img src="Badehus%20regn.png" alt="Badehus Project 1">
                 <div class="project-info">
-                    <div class="project-title">Badehus - Rainy View</div>
+                    <div class="project-title">
+                        Badehus - Rainy View<br>
+                        <span>A community bathhouse designed to blend with its natural surroundings, featuring large windows to capture light and views of the sea.</span>
+                    </div>
                 </div>
             </div>
 
             <div class="project">
                 <img src="Badehus%20ute.png" alt="Badehus Project 2">
                 <div class="project-info">
-                    <div class="project-title">Badehus - Outside View</div>
+                    <div class="project-title">
+                        Badehus - Outside View<br>
+                        <span>A sleek design, the bathhouse merges into the landscape while maintaining a strong architectural presence.</span>
+                    </div>
                 </div>
             </div>
 
             <div class="project">
                 <img src="Badehus%20vindu.png" alt="Badehus Window View">
                 <div class="project-info">
-                    <div class="project-title">Badehus - Window View</div>
+                    <div class="project-title">
+                        Badehus - Window View<br>
+                        <span>Innovative use of glass to frame the views, creating an immersive connection with the surrounding environment.</span>
+                    </div>
                 </div>
             </div>
 
@@ -298,14 +316,20 @@
             <div class="project">
                 <img src="Grounded%20inngang.png" alt="Grounded Entrance">
                 <div class="project-info">
-                    <div class="project-title">Grounded - Entrance</div>
+                    <div class="project-title">
+                        Grounded - Entrance<br>
+                        <span>An underground mindfulness space designed to promote relaxation and a deeper connection to nature.</span>
+                    </div>
                 </div>
             </div>
 
             <div class="project">
                 <img src="Grounded%20refleksjon.png" alt="Grounded Reflection">
                 <div class="project-info">
-                    <div class="project-title">Grounded - Reflection</div>
+                    <div class="project-title">
+                        Grounded - Reflection<br>
+                        <span>A reflective area that incorporates natural light and elements of water to enhance tranquility.</span>
+                    </div>
                 </div>
             </div>
 
@@ -313,14 +337,20 @@
             <div class="project">
                 <img src="Master%201.png" alt="Master Thesis Image 1">
                 <div class="project-info">
-                    <div class="project-title">Master Thesis - Overview 1</div>
+                    <div class="project-title">
+                        Master Thesis - Overview 1<br>
+                        <span>A comprehensive design proposal showcasing sustainable practices in urban settings.</span>
+                    </div>
                 </div>
             </div>
 
             <div class="project">
                 <img src="Master%202.png" alt="Master Thesis Image 2">
                 <div class="project-info">
-                    <div class="project-title">Master Thesis - Overview 2</div>
+                    <div class="project-title">
+                        Master Thesis - Overview 2<br>
+                        <span>Exploring innovative materials and techniques in modern architecture.</span>
+                    </div>
                 </div>
             </div>
         </div>
