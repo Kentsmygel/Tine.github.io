@@ -13,25 +13,25 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+            box-sizing: border-box;
         }
 
         body, html {
-            font-family: 'Montserrat', sans-serif; /* Sleek, professional font */
+            font-family: 'Montserrat', sans-serif;
             background-color: #f5f5f5;
             color: #333;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
         }
 
         /* Intro Section */
         .intro {
             height: 100vh; /* Full height of viewport */
-            Width: 100vh;
+            width: 100vw;  /* Full width of viewport */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #f5e6cc; /* Soft beige color */
+            background-color: #f5e6cc;
             text-align: center;
         }
 
@@ -66,18 +66,18 @@
 
         /* Projects Section */
         .projects {
-            width: 1980px; /* Change this value to increase width */
+            width: 100%; 
             padding: 0px 0px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: auto; /* Center the section */
+            margin: auto;
         }
 
         .project {
             display: flex;
-            width: 100%; /* Full width of the project section */
-            margin: 0px 0;
+            width: 100%;
+            margin: 20px 0;
             align-items: center;
             justify-content: space-between;
             transition: transform 0.3s;
@@ -85,16 +85,17 @@
         }
 
         .project img {
-            width: 40%; /* Keep original aspect ratio but smaller */
+            max-width: 100%;
+            height: auto;
             max-height: 400px; /* Limit maximum height */
             transition: transform 0.3s;
         }
 
         .project-info {
-            width: 50%; /* Wider project description */
+            width: 50%;
             padding: 20px;
-            opacity: 0; /* Hidden by default */
-            visibility: hidden; /* Hidden by default */
+            opacity: 0;
+            visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
@@ -103,30 +104,30 @@
         }
 
         .project:hover .project-info {
-            opacity: 1; /* Show the text */
-            visibility: visible; /* Make it visible */
+            opacity: 1;
+            visibility: visible;
         }
 
         .project:nth-child(even) {
-            flex-direction: row-reverse; /* Right alignment for even projects */
+            flex-direction: row-reverse;
         }
 
         .project-title {
-            font-size: 1.2rem; /* Smaller font size */
-            font-weight: 300; /* Thinner font */
+            font-size: 1.2rem;
+            font-weight: 300;
             color: #556b2f;
-            text-align: center; /* Center the text */
-            padding: 10px; /* Added padding for better readability */
+            text-align: center;
+            padding: 10px;
         }
 
         /* Art Section */
         .art-gallery {
-            width: 1200px; /* Change this value to increase width */
+            width: 1200px;
             padding: 50px 20px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
-            margin: auto; /* Center the gallery */
+            margin: auto;
         }
 
         .art-card {
@@ -142,15 +143,15 @@
 
         .art-card img {
             width: 100%;
-            height: auto; /* Maintain original aspect ratio */
+            height: auto;
         }
 
         /* Contact Section */
         .contact {
-            width: 1200px; /* Change this value to increase width */
+            width: 1200px;
             padding: 50px 20px;
             text-align: center;
-            margin: auto; /* Center the contact section */
+            margin: auto;
         }
 
         /* Footer Section */
@@ -170,27 +171,26 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .project {
-                flex-direction: column; /* Stack images and text on mobile */
+                flex-direction: column;
             }
 
             .project img {
-                width: 100%; /* Full width on mobile */
+                width: 100%;
             }
 
             .project-info {
-                width: 100%; /* Full width on mobile */
+                width: 100%;
             }
 
             .menu {
-                flex-direction: column; /* Stack menu items on mobile */
+                flex-direction: column;
             }
 
-            /* Adjust section width on mobile */
             .projects,
             .art-gallery,
             .contact {
-                width: 100%; /* Full width on mobile */
-                padding: 0 10px; /* Adjust padding for mobile */
+                width: 100%;
+                padding: 0 10px;
             }
         }
     </style>
